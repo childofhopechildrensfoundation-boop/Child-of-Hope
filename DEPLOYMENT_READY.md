@@ -14,36 +14,27 @@ Start here and work through in order:
 - 📖 [QUICK_START.md](QUICK_START.md) ← **START HERE** (5 min read)
 - 📖 [COMPLETE_DEPLOYMENT_GUIDE.md](COMPLETE_DEPLOYMENT_GUIDE.md) ← Step-by-step (30 min)
 
-## 2️⃣ **For Stripe Setup:**
-- 📖 [STRIPE_SETUP_GUIDE.md](STRIPE_SETUP_GUIDE.md) ← Account creation & configuration
-
-## 3️⃣ **For File Upload:**
+## 2️⃣ **For File Upload:**
 - 📖 [FTP_UPLOAD_MANIFEST.md](FTP_UPLOAD_MANIFEST.md) ← Which files to upload
 
-## 4️⃣ **For Pesapal Setup:**
+## 3️⃣ **For Pesapal Setup:**
 - 📖 [PESAPAL_SETUP_GUIDE.md](PESAPAL_SETUP_GUIDE.md) ← Already configured
 - 📖 [PESAPAL_DEPLOYMENT_GUIDE.md](PESAPAL_DEPLOYMENT_GUIDE.md) ← Additional details
 
-## 5️⃣ **For Testing:**
+## 4️⃣ **For Testing:**
 - 📖 [REAL_TESTING_GUIDE.md](REAL_TESTING_GUIDE.md) ← How to test payments
 
 ---
 
 # 🎯 YOUR SYSTEM INCLUDES:
 
-## ✅ **Payment Methods (2 Options):**
+## ✅ **Payment Methods:**
 
 ### 🔵 Pesapal
 - Mobile money focus (Uganda)
 - Works in 30+ countries
 - Local payment methods
 - Status: ✅ Configured & tested
-
-### 💳 Stripe  
-- Credit/debit cards
-- Digital wallets (Apple Pay, Google Pay)
-- Global coverage
-- Status: ✅ Configured & ready
 
 ---
 
@@ -53,8 +44,6 @@ Start here and work through in order:
 |------|---------|------|--------|
 | `pesapal.php` | Pesapal payment handler | 6.6 KB | ✅ Tested |
 | `pesapal_callback.php` | Pesapal webhook | 8.1 KB | ✅ Tested |
-| `stripe.php` | Stripe payment handler | 5.6 KB | ✅ Ready |
-| `stripe_webhook.php` | Stripe webhook | 4.9 KB | ✅ Ready |
 
 ---
 
@@ -62,8 +51,8 @@ Start here and work through in order:
 
 | Page | Features | Status |
 |------|----------|--------|
-| `/donate.html` | Donation form (both methods) | ✅ Updated |
-| `/admin_dashboard.php` | Combined Pesapal + Stripe view | ✅ New |
+| `/donate.html` | Donation form (Pesapal) | ✅ Updated |
+| `/admin_dashboard.php` | Pesapal transactions view | ✅ Updated |
 | `/pesapal_admin.php` | Pesapal-only admin | ✅ Existing |
 
 ---
@@ -72,9 +61,9 @@ Start here and work through in order:
 
 | Item | Status |
 |------|--------|
-| `.env` file | ✅ Updated with Stripe placeholders |
-| `composer.json` | ✅ Updated (Stripe library added) |
-| `vendor/` folder | ✅ Stripe PHP library installed |
+| `.env` file | ✅ Updated with Pesapal credentials |
+| `composer.json` | ✅ Updated (Pesapal library ready) |
+| `vendor/` folder | ✅ PHP dependencies installed |
 | Security | ✅ CSRF tokens, input validation, SSL ready |
 
 ---
@@ -85,7 +74,7 @@ Your nonprofit now has a professional donation system with:
 
 ✨ **What Donors See:**
 - Clean, professional donation page
-- 2 payment methods to choose from
+- Pesapal payment method
 - Secure, encrypted transactions
 - Mobile-friendly interface
 - Automatic receipt emails
@@ -98,7 +87,6 @@ Your nonprofit now has a professional donation system with:
 - Email receipts to donors
 
 ✨ **What's Secure:**
-- PCI compliance (Stripe handles it)
 - OAuth 1.0a signing (Pesapal)
 - CSRF token protection
 - SSL/HTTPS encryption
@@ -108,11 +96,8 @@ Your nonprofit now has a professional donation system with:
 
 # 📋 DEPLOYMENT STEPS (Summary)
 
-## Step 1: Set Up Stripe (15 min)
-1. Go to https://stripe.com
-2. Create account
-3. Get API keys
-4. Add webhook
+## Step 1: Set Up Pesapal (if not already done)
+Refer to [PESAPAL_SETUP_GUIDE.md](PESAPAL_SETUP_GUIDE.md) for detailed instructions.
 
 ## Step 2: Set Up Bluehost (25 min)
 1. Go to https://www.bluehost.com
@@ -122,7 +107,7 @@ Your nonprofit now has a professional donation system with:
 
 ## Step 3: Update Configuration (5 min)
 1. Edit `.env` file
-2. Add your Stripe keys
+2. Add your Pesapal credentials
 3. Add admin password
 
 ## Step 4: Upload Files (20 min)
@@ -134,27 +119,23 @@ Your nonprofit now has a professional donation system with:
 
 ## Step 5: Test Payments (15 min)
 1. Visit donation page
-2. Test Stripe payment ($4242...)
-3. Test Pesapal payment
-4. Check admin dashboard
-5. Verify emails received
+2. Test Pesapal payment
+3. Check admin dashboard
+4. Verify emails received
 
 ## Step 6: Go Live (When Ready)
-1. Switch Stripe to Live mode
-2. Update `.env` with Live keys
-3. Test with real $1 payment
-4. Announce to donors!
+1. Verify all settings are correct
+2. Test with real $1 payment
+3. Announce to donors!
 
 ---
 
 # 📦 FILES TO UPLOAD
 
-### Essential Files (1.1 MB total):
+### Essential Files (900 KB total):
 ```
 ✅ pesapal.php                (6.6 KB)
 ✅ pesapal_callback.php       (8.1 KB)
-✅ stripe.php                 (5.6 KB)
-✅ stripe_webhook.php         (4.9 KB)
 ✅ admin_dashboard.php        (14 KB)
 ✅ donate.html                (44 KB)
 ✅ .env                       (0.5 KB)
@@ -179,7 +160,6 @@ Your nonprofit now has a professional donation system with:
 - [ ] .env has correct permissions (600)
 - [ ] HTTPS/SSL is active (green lock 🔒)
 - [ ] Admin password changed from default
-- [ ] Stripe webhooks configured
 - [ ] Test payment completed successfully
 
 ### After Going Live:
@@ -195,7 +175,7 @@ Your nonprofit now has a professional donation system with:
 
 ## Donor Experience:
 ✅ Easy donation process (2 clicks)  
-✅ Multiple payment methods  
+✅ Pesapal payment method  
 ✅ Mobile-friendly interface  
 ✅ Automatic receipt emails  
 ✅ No account creation needed  
@@ -230,56 +210,29 @@ Both payment systems automatically log transactions:
 - Payment status
 ```
 
-### Stripe Log:
-```
-/stripe_transactions.log (JSON format)
-- Timestamp
-- Charge ID
-- Amount & currency
-- Donor info
-- Payment status
-```
-
-### Combined View:
+### Admin Dashboard View:
 ```
 /admin_dashboard.php (Web interface)
-- View both logs together
+- View all transactions
 - Filter & sort
 - Export to CSV
 ```
 
 ---
 
-# 🎓 EXAMPLE WORKFLOWS
+# 🎓 EXAMPLE WORKFLOW
 
-### Scenario 1: Donor Donates $50 via Stripe
-
-1. Donor visits: `https://yoursite.com/donate.html`
-2. Clicks "Stripe" tab
-3. Enters name & email
-4. Clicks "$50" button
-5. Redirected to Stripe Checkout
-6. Enters card: `4242 4242 4242 4242`
-7. Clicks "Pay"
-8. Payment processes ✅
-9. Redirected back to site with success message
-10. Admin dashboard shows new transaction
-11. Donor receives receipt email
-
----
-
-### Scenario 2: Donor Donates $30 via Pesapal
+### Donor Donates $50 via Pesapal
 
 1. Donor visits: `https://yoursite.com/donate.html`
-2. Clicks "Pesapal" tab
-3. Enters name & email
-4. Clicks custom amount: "$30"
-5. Clicks "Donate"
-6. Redirected to Pesapal
-7. Completes Pesapal payment
-8. Redirected back to site with success message
-9. Admin dashboard shows new transaction
-10. Donor receives receipt email
+2. Enters name & email
+3. Clicks "$50" button
+4. Redirected to Pesapal payment gateway
+5. Selects preferred payment method (mobile money, card, etc.)
+6. Completes payment
+7. Returns to site with success message ✅
+8. Admin dashboard shows new transaction
+9. Donor receives receipt email
 
 ---
 
@@ -294,7 +247,6 @@ Password: [Your password from .env]
 ### Features:
 - View all donations
 - Statistics (count & totals)
-- Filter by payment method
 - Sort by date/amount/status
 - Export to CSV
 - Real-time updates
@@ -308,12 +260,6 @@ Password: Check .env file
 ---
 
 # 📞 SUPPORT RESOURCES
-
-### Stripe:
-- 🔗 Dashboard: https://dashboard.stripe.com
-- 📚 Docs: https://stripe.com/docs/stripe-php
-- 💬 Support: https://support.stripe.com
-- 📧 Email: support@stripe.com
 
 ### Pesapal:
 - 🔗 Dashboard: https://www.pesapal.com
@@ -335,9 +281,9 @@ Password: Check .env file
    - Keep them in .env file only
 
 2. **Test Keys First:**
-   - Use Stripe Test mode initially
-   - Use test card: `4242 4242 4242 4242`
-   - Switch to Live keys after testing
+   - Test payment processing before going live
+   - Verify emails are working correctly
+   - Check admin dashboard functionality
 
 3. **HTTPS is Required:**
    - Bluehost provides FREE SSL
@@ -359,7 +305,7 @@ Password: Check .env file
 # 🎯 NEXT STEPS
 
 1. **Read QUICK_START.md** (5 minutes)
-2. **Create Stripe Account** (15 minutes)
+2. **Create/Configure Pesapal Account** (15 minutes)
 3. **Signup for Bluehost** (25 minutes)
 4. **Update .env file** (5 minutes)
 5. **Upload files via FTP** (20 minutes)
@@ -374,9 +320,8 @@ Before launching:
 
 ```
 CONFIGURATION:
-☐ Stripe account created
-☐ Stripe test keys obtained
-☐ Stripe webhook configured
+☐ Pesapal account created & configured
+☐ Pesapal credentials obtained
 ☐ Bluehost account created
 ☐ Domain activated
 ☐ SSL/HTTPS active
@@ -392,7 +337,6 @@ FILES:
 TESTING:
 ☐ Donation page loads
 ☐ Admin dashboard accessible
-☐ Stripe test payment succeeds
 ☐ Pesapal test payment succeeds
 ☐ Transactions appear in admin
 ☐ Receipt emails received
@@ -402,12 +346,9 @@ SECURITY:
 ☐ .env has 600 permissions
 ☐ Admin password changed
 ☐ HTTPS active
-☐ Stripe webhook verified
 ☐ No sensitive data in logs
 
 READY:
-☐ Switch Stripe to Live mode
-☐ Update .env with Live keys
 ☐ Test with real $1 payment
 ☐ Announce to donors
 ☐ Launch! 🚀
@@ -419,7 +360,7 @@ READY:
 
 Your nonprofit donation system is:
 
-✅ **Feature-complete** - 2 payment methods ready  
+✅ **Feature-complete** - Pesapal payment ready  
 ✅ **Secure** - Industry-standard encryption  
 ✅ **Professional** - Beautiful, user-friendly UI  
 ✅ **Scalable** - Can handle thousands of donors  
@@ -430,17 +371,15 @@ Your nonprofit donation system is:
 
 ---
 
-## 📖 DOCUMENTATION FILES CREATED:
+## 📖 DOCUMENTATION FILES:
 
 1. `QUICK_START.md` - 3-minute overview
 2. `COMPLETE_DEPLOYMENT_GUIDE.md` - Detailed step-by-step
 3. `FTP_UPLOAD_MANIFEST.md` - File upload checklist
-4. `STRIPE_SETUP_GUIDE.md` - Stripe account setup
-5. `STRIPE_INTEGRATION_COMPLETE.md` - Stripe reference
-6. `PESAPAL_SETUP_GUIDE.md` - Pesapal guide
-7. `PESAPAL_DEPLOYMENT_GUIDE.md` - Pesapal details
-8. `REAL_TESTING_GUIDE.md` - Testing instructions
-9. `DEPLOYMENT_READY.md` - **THIS FILE**
+4. `PESAPAL_SETUP_GUIDE.md` - Pesapal guide
+5. `PESAPAL_DEPLOYMENT_GUIDE.md` - Pesapal details
+6. `REAL_TESTING_GUIDE.md` - Testing instructions
+7. `DEPLOYMENT_READY.md` - **THIS FILE**
 
 ---
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Combined Admin Dashboard
- * View donation transactions from both Pesapal and Stripe
+ * View donation transactions from Pesapal
  */
 
 error_reporting(E_ALL & ~E_DEPRECATED);
@@ -64,20 +64,6 @@ if ($isAuthenticated) {
             $trans = json_decode($line, true);
             if ($trans) {
                 $trans['payment_method'] = 'Pesapal';
-                $allTransactions[] = $trans;
-            }
-        }
-    }
-
-    // Parse Stripe transactions
-    $stripeLog = __DIR__ . '/stripe_transactions.log';
-    if (file_exists($stripeLog)) {
-        $stripeLines = file($stripeLog, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($stripeLines as $line) {
-            if (empty($line)) continue;
-            $trans = json_decode($line, true);
-            if ($trans) {
-                $trans['payment_method'] = 'Stripe';
                 $allTransactions[] = $trans;
             }
         }
@@ -251,7 +237,7 @@ if ($isAuthenticated) {
             <div class="dashboard-header">
                 <div>
                     <h1><i class="fas fa-chart-line"></i> Child of Hope - Donations Dashboard</h1>
-                    <small class="text-muted">Combined Pesapal & Stripe Transactions</small>
+                    <small class="text-muted">Pesapal Transactions</small>
                 </div>
                 <a href="?logout" class="btn btn-logout">Logout</a>
             </div>
@@ -317,11 +303,7 @@ if ($isAuthenticated) {
                                     <td><strong>USD <?php echo number_format($trans['amount'] ?? 0, 2); ?></strong></td>
                                     <td><?php echo htmlspecialchars($trans['cause'] ?? $trans['description'] ?? 'General'); ?></td>
                                     <td>
-                                        <?php if ($trans['payment_method'] === 'Stripe'): ?>
-                                            <span class="badge bg-info"><i class="fas fa-credit-card"></i> Stripe</span>
-                                        <?php else: ?>
-                                            <span class="badge bg-secondary"><i class="fas fa-mobile-alt"></i> Pesapal</span>
-                                        <?php endif; ?>
+                                        <span class="badge bg-secondary"><i class="fas fa-mobile-alt"></i> Pesapal</span>
                                     </td>
                                     <td><small><?php echo htmlspecialchars(substr($trans['reference'] ?? $trans['charge_id'] ?? 'N/A', 0, 15)); ?>...</small></td>
                                     <td>
