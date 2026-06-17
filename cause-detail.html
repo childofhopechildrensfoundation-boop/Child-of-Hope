@@ -661,7 +661,6 @@
 
             // Update form cause field
             document.getElementById('cause').value = cause.name;
-            document.getElementById('stripe_cause').value = cause.name;
         }
 
         function setupPaymentButtons() {
@@ -687,27 +686,6 @@
                 });
             });
 
-            // Stripe buttons
-            document.querySelectorAll('.stripe-amount-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const name = document.getElementById('donor_name_stripe').value.trim();
-                    const email = document.getElementById('donor_email_stripe').value.trim();
-                    
-                    if (!name || !email) {
-                        showErrorStripe('Please enter your name and email first.');
-                        return;
-                    }
-                    
-                    if (!validateEmail(email)) {
-                        showErrorStripe('Please enter a valid email address.');
-                        return;
-                    }
-
-                    const amount = this.getAttribute('data-amount');
-                    const cause = this.getAttribute('data-cause');
-                    submitDonationStripe(name, email, amount, cause);
-                });
-            });
         }
 
         function validateEmail(email) {
@@ -755,70 +733,6 @@
             const messageDiv = document.getElementById('pesapal-status-message');
             messageDiv.innerHTML = '<div class="alert alert-danger">' + message + '</div>';
             messageDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function donateCustomAmountStripe() {
-            const name = document.getElementById('donor_name_stripe').value.trim();
-            const email = document.getElementById('donor_email_stripe').value.trim();
-            const amount = document.getElementById('custom_amount_stripe').value.trim();
-            
-            if (!name || !email) {
-                showErrorStripe('Please enter your name and email first.');
-                return;
-            }
-            
-            if (!validateEmail(email)) {
-                showErrorStripe('Please enter a valid email address.');
-                return;
-            }
-
-            if (!amount || amount < 1) {
-                showErrorStripe('Please enter an amount of at least $1 USD.');
-                return;
-            }
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const cause = causesDatabase[urlParams.get('cause') || 'pure-water'];
-            submitDonationStripe(name, email, amount, cause.name);
-        }
-
-        function submitDonationStripe(name, email, amount, cause) {
-            const csrfToken = sessionStorage.getItem('csrf_token') || generateCSRFToken();
-            document.getElementById('stripe_form_donor_name').value = name;
-            document.getElementById('stripe_form_donor_email').value = email;
-            document.getElementById('stripe_amount').value = amount;
-            document.getElementById('stripe_cause').value = cause;
-            document.getElementById('stripe_csrf_token').value = csrfToken;
-            
-            showInfoStripe('Processing your donation...');
-            
-            fetch('stripe.php', {
-                method: 'POST',
-                body: new FormData(document.getElementById('stripe-form')),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success && data.checkout_url) {
-                    window.location.href = data.checkout_url;
-                } else {
-                    showErrorStripe(data.error || 'Payment processing error. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showErrorStripe('An error occurred. Please try again.');
-            });
-        }
-
-        function showErrorStripe(message) {
-            const messageDiv = document.getElementById('stripe-status-message');
-            messageDiv.innerHTML = '<div class="alert alert-danger">' + message + '</div>';
-            messageDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function showInfoStripe(message) {
-            const messageDiv = document.getElementById('stripe-status-message');
-            messageDiv.innerHTML = '<div class="alert alert-info">' + message + '</div>';
         }
 
         // Initialize WOW.js for animations
