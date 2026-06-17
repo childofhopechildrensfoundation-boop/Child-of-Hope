@@ -405,42 +405,69 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100 bg-white p-5">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-light border-0" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control bg-light border-0" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="btn-group d-flex justify-content-around">
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
-                                        <label class="btn btn-light py-3" for="btnradio1">$10</label>
+                        <h4 class="text-dark mb-4">Select Donation Amount</h4>
+                        
+                        <!-- PayPal Donation Buttons -->
+                        <div class="mb-4">
+                            <!-- $10 Donation -->
+                            <form action="https://www.paypal.com/donate" method="post" target="_top" class="mb-2">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
+                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
+                                <input type="hidden" name="amount" value="10.00">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="hidden" name="lc" value="US">
+                                <button type="submit" class="btn btn-primary py-2 px-4 w-100">
+                                    <i class="fab fa-paypal me-2"></i> Donate $10
+                                </button>
+                            </form>
 
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
-                                        <label class="btn btn-light py-3" for="btnradio2">$20</label>
+                            <!-- $20 Donation -->
+                            <form action="https://www.paypal.com/donate" method="post" target="_top" class="mb-2">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
+                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
+                                <input type="hidden" name="amount" value="20.00">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="hidden" name="lc" value="US">
+                                <button type="submit" class="btn btn-primary py-2 px-4 w-100">
+                                    <i class="fab fa-paypal me-2"></i> Donate $20
+                                </button>
+                            </form>
 
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3">
-                                        <label class="btn btn-light py-3" for="btnradio3">$30</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary px-5" style="height: 60px;">
-                                        Donate Now
-                                        <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                            <i class="fa fa-arrow-right"></i>
-                                        </div>
+                            <!-- $30 Donation -->
+                            <form action="https://www.paypal.com/donate" method="post" target="_top" class="mb-3">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
+                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
+                                <input type="hidden" name="amount" value="30.00">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="hidden" name="lc" value="US">
+                                <button type="submit" class="btn btn-primary py-2 px-4 w-100">
+                                    <i class="fab fa-paypal me-2"></i> Donate $30
+                                </button>
+                            </form>
+
+                            <!-- Custom Amount -->
+                            <form action="https://www.paypal.com/donate" method="post" target="_top">
+                                <div class="input-group">
+                                    <input type="number" name="amount" class="form-control bg-light border-primary" placeholder="Custom amount" step="0.01" min="1" required>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fab fa-paypal me-1"></i> Donate
                                     </button>
                                 </div>
-                            </div>
-                        </form>
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
+                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="hidden" name="lc" value="US">
+                            </form>
+                        </div>
+
+                        <p class="text-muted small mt-3">
+                            <i class="fas fa-lock me-2"></i>
+                            Your donation is secure and processed through PayPal
+                        </p>
                     </div>
                 </div>
             </div>
