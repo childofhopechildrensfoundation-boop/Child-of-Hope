@@ -181,11 +181,11 @@ if ($paymentStatus === 'COMPLETED') {
         $to = $donorEmail;
         $subject = 'Donation Receipt - Child of Hope Children\'s Foundation';
         $message = "Dear $donorName,\n\n";
-        $message .= "Thank you for your generous donation of UGX " . number_format($amount, 0) . " to Child of Hope Children's Foundation.\n\n";
+        $message .= "Thank you for your generous donation of USD " . number_format($amount, 2) . " to Child of Hope Children's Foundation.\n\n";
         $message .= "Transaction Details:\n";
         $message .= "Reference: $pesapalMerchantReference\n";
         $message .= "Tracking ID: $pesapalTrackingId\n";
-        $message .= "Amount: UGX " . number_format($amount, 0) . "\n";
+        $message .= "Amount: USD " . number_format($amount, 2) . "\n";
         $message .= "Date: " . date('Y-m-d H:i:s') . "\n\n";
         $message .= "Your support makes a real difference in the lives of children in our community.\n\n";
         $message .= "Best regards,\n";
@@ -203,7 +203,7 @@ if ($paymentStatus === 'COMPLETED') {
         }
     }
     
-    error_log("Pesapal: Successful donation - Ref: $pesapalMerchantReference, Amount: $amount UGX from $donorEmail");
+    error_log("Pesapal: Successful donation - Ref: $pesapalMerchantReference, Amount: USD $amount from $donorEmail");
     header('Location: donate.html?status=success&amount=' . urlencode($amount) . '&ref=' . urlencode($pesapalMerchantReference));
 } elseif ($paymentStatus === 'PENDING') {
     error_log("Pesapal: Pending donation - Ref: $pesapalMerchantReference");

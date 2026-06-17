@@ -32,6 +32,24 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css?v=1.0" rel="stylesheet">
+
+    <!-- Custom Donation Page Styles -->
+    <style>
+        .pesapal-amount-btn:hover, .stripe-amount-btn:hover {
+            background-color: #E85D00 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 111, 15, 0.3);
+        }
+
+        .pesapal-amount-btn, .stripe-amount-btn {
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #FF6F0F !important;
+            box-shadow: 0 0 0 0.2rem rgba(255, 111, 15, 0.25) !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,9 +70,9 @@
             <div class="col-12 col-lg-6 px-5 text-end">
                 <small>Follow us:</small>
                 
-                <a class="text-white-50 ms-3" href=""><i class="fab fa-instagram"></i></a>
-                <a class="text-white-50 ms-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="text-white-50 ms-3" href=""><i class="fab fa-instagram"></i></a>
+                <a class="text-white-50 ms-3" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="text-white-50 ms-3" href="https://www.linkedin.com/in/child-of-hope-childrens-foundation-33411b411/?skipRedirect=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="text-white-50 ms-3" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
 
@@ -125,61 +143,131 @@
                     <p class="mb-0">Our mission is to provide nurturing care, safe learning, and lasting hope for every child.</p>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="h-100 bg-secondary p-5">
-                        <h4 class="text-white mb-4">Select Donation Amount (UGX)</h4>
+                    <div class="h-100 p-5" style="background: linear-gradient(135deg, #001D23 0%, #004C57 100%); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                        <h4 class="text-white mb-4" style="font-size: 1.5rem; font-weight: 600;">🎁 Select Payment Method</h4>
                         
-                        <!-- Pesapal Donation Form -->
-                        <div class="mb-4">
-                            <div id="pesapal-status-message"></div>
-                            
-                            <!-- Donor Details -->
-                            <div class="mb-3">
-                                <input type="text" id="donor_name" class="form-control bg-light border-0" placeholder="Your Full Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" id="donor_email" class="form-control bg-light border-0" placeholder="Your Email Address" required>
+                        <!-- Payment Method Tabs -->
+                        <ul class="nav nav-tabs mb-4" id="paymentTabs" role="tablist" style="border-bottom: 2px solid rgba(255,255,255,0.2);">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active text-white" id="pesapal-tab" data-bs-toggle="tab" data-bs-target="#pesapal-payment" type="button" role="tab" aria-controls="pesapal-payment" aria-selected="true">
+                                    <i class="fas fa-mobile-alt me-2"></i> Pesapal
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link text-white" id="stripe-tab" data-bs-toggle="tab" data-bs-target="#stripe-payment" type="button" role="tab" aria-controls="stripe-payment" aria-selected="false">
+                                    <i class="fas fa-credit-card me-2"></i> Stripe
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="paymentTabContent">
+                            <!-- Pesapal Tab -->
+                            <div class="tab-pane fade show active" id="pesapal-payment" role="tabpanel" aria-labelledby="pesapal-tab">
+                                <div id="pesapal-status-message"></div>
+                                
+                                <!-- Donor Details -->
+                                <div class="mb-3">
+                                    <input type="text" id="donor_name_pesapal" class="form-control" placeholder="Your Full Name" required style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="donor_email_pesapal" class="form-control" placeholder="Your Email Address" required style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                </div>
+
+                                <!-- Preset Amount Buttons -->
+                                <div class="d-grid gap-2 mb-3">
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="50" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $50 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="100" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $100 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="200" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $200 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="500" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $500 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="1000" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $1,000 USD
+                                    </button>
+                                </div>
+
+                                <!-- Custom Amount -->
+                                <form id="pesapal-form" action="pesapal.php" method="POST" style="display: none;">
+                                    <input type="hidden" id="amount" name="amount" value="">
+                                    <input type="hidden" id="cause" name="cause" value="">
+                                    <input type="hidden" name="donor_name" id="form_donor_name" value="">
+                                    <input type="hidden" name="donor_email" id="form_donor_email" value="">
+                                    <input type="hidden" id="csrf_token" name="csrf_token" value="">
+                                </form>
+
+                                <div class="input-group mb-3">
+                                    <input type="number" id="custom_amount_pesapal" class="form-control" placeholder="Enter custom amount (USD)" step="0.01" min="1" style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                    <button type="button" class="btn" onclick="donateCustomAmountPesapal()" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate
+                                    </button>
+                                </div>
+
+                                <p class="text-white small mt-4">
+                                    <i class="fas fa-lock me-2"></i>
+                                    Your donation is secure and processed through Pesapal
+                                </p>
                             </div>
 
-                            <!-- Preset Amount Buttons -->
-                            <div class="d-grid gap-2 mb-3">
-                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="50000" data-cause="General Donation">
-                                    <i class="fas fa-heart me-2"></i> Donate 50,000 UGX
-                                </button>
-                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="100000" data-cause="General Donation">
-                                    <i class="fas fa-heart me-2"></i> Donate 100,000 UGX
-                                </button>
-                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="200000" data-cause="General Donation">
-                                    <i class="fas fa-heart me-2"></i> Donate 200,000 UGX
-                                </button>
-                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="500000" data-cause="General Donation">
-                                    <i class="fas fa-heart me-2"></i> Donate 500,000 UGX
-                                </button>
-                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="1000000" data-cause="General Donation">
-                                    <i class="fas fa-heart me-2"></i> Donate 1,000,000 UGX
-                                </button>
-                            </div>
+                            <!-- Stripe Tab -->
+                            <div class="tab-pane fade" id="stripe-payment" role="tabpanel" aria-labelledby="stripe-tab">
+                                <div id="stripe-status-message"></div>
+                                
+                                <!-- Donor Details -->
+                                <div class="mb-3">
+                                    <input type="text" id="donor_name_stripe" class="form-control" placeholder="Your Full Name" required style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="donor_email_stripe" class="form-control" placeholder="Your Email Address" required style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                </div>
 
-                            <!-- Custom Amount -->
-                            <form id="pesapal-form" action="pesapal.php" method="POST" style="display: none;">
-                                <input type="hidden" id="amount" name="amount" value="">
-                                <input type="hidden" id="cause" name="cause" value="">
-                                <input type="hidden" name="donor_name" id="form_donor_name" value="">
-                                <input type="hidden" name="donor_email" id="form_donor_email" value="">
-                                <input type="hidden" id="csrf_token" name="csrf_token" value="">
-                            </form>
+                                <!-- Preset Amount Buttons -->
+                                <div class="d-grid gap-2 mb-3">
+                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="50" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $50 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="100" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $100 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="200" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $200 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="500" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $500 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="1000" data-cause="General Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $1,000 USD
+                                    </button>
+                                </div>
 
-                            <div class="input-group mb-3">
-                                <input type="number" id="custom_amount" class="form-control bg-light border-0" placeholder="Enter custom amount (UGX)" step="1" min="1000">
-                                <button type="button" class="btn btn-primary" onclick="donateCustomAmount()">
-                                    <i class="fas fa-heart me-2"></i> Donate
-                                </button>
+                                <!-- Custom Amount -->
+                                <form id="stripe-form" action="stripe.php" method="POST" style="display: none;">
+                                    <input type="hidden" id="stripe_amount" name="amount" value="">
+                                    <input type="hidden" id="stripe_cause" name="cause" value="">
+                                    <input type="hidden" name="donor_name" id="stripe_form_donor_name" value="">
+                                    <input type="hidden" name="donor_email" id="stripe_form_donor_email" value="">
+                                    <input type="hidden" id="stripe_csrf_token" name="csrf_token" value="">
+                                </form>
+
+                                <div class="input-group mb-3">
+                                    <input type="number" id="custom_amount_stripe" class="form-control" placeholder="Enter custom amount (USD)" step="0.01" min="1" style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                    <button type="button" class="btn" onclick="donateCustomAmountStripe()" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate
+                                    </button>
+                                </div>
+
+                                <p class="text-white small mt-4">
+                                    <i class="fas fa-lock me-2"></i>
+                                    Your donation is secure and processed through Stripe
+                                </p>
                             </div>
                         </div>
-
-                        <p class="text-white small mt-4">
-                            <i class="fas fa-lock me-2"></i>
-                            Your donation is secure and processed through Pesapal
-                        </p>
                     </div>
                 </div>
 
@@ -207,7 +295,7 @@
                         if (status === 'success') {
                             const amount = urlParams.get('amount');
                             const ref = urlParams.get('ref');
-                            message.innerHTML = '<div class="alert alert-success"><strong>Success!</strong> Your donation of UGX ' + new Intl.NumberFormat('en-US').format(amount) + ' was processed successfully. A receipt has been sent to your email. Reference: ' + ref + '</div>';
+                            message.innerHTML = '<div class="alert alert-success"><strong>Success!</strong> Your donation of $' + new Intl.NumberFormat('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}).format(amount) + ' USD was processed successfully. A receipt has been sent to your email. Reference: ' + ref + '</div>';
                             // Clear URL parameters
                             window.history.replaceState({}, document.title, window.location.pathname);
                         } else if (status === 'pending') {
@@ -218,55 +306,60 @@
                             const ref = urlParams.get('ref');
                             message.innerHTML = '<div class="alert alert-danger"><strong>Payment Failed</strong> Your payment was not completed. Please try again or contact support. Reference: ' + (ref || 'N/A') + '</div>';
                             window.history.replaceState({}, document.title, window.location.pathname);
+                        } else if (status === 'cancelled') {
+                            message.innerHTML = '<div class="alert alert-warning"><strong>Payment Cancelled</strong> Your payment was cancelled. Please try again.</div>';
+                            window.history.replaceState({}, document.title, window.location.pathname);
                         }
                     });
 
-                    // Handle preset amount buttons
+                    // ===== PESAPAL FUNCTIONS =====
+                    
+                    // Handle Pesapal preset amount buttons
                     document.querySelectorAll('.pesapal-amount-btn').forEach(btn => {
                         btn.addEventListener('click', function() {
-                            const name = document.getElementById('donor_name').value.trim();
-                            const email = document.getElementById('donor_email').value.trim();
+                            const name = document.getElementById('donor_name_pesapal').value.trim();
+                            const email = document.getElementById('donor_email_pesapal').value.trim();
                             
                             if (!name || !email) {
-                                showError('Please enter your name and email first.');
+                                showErrorPesapal('Please enter your name and email first.');
                                 return;
                             }
                             
                             if (!validateEmail(email)) {
-                                showError('Please enter a valid email address.');
+                                showErrorPesapal('Please enter a valid email address.');
                                 return;
                             }
 
                             const amount = this.getAttribute('data-amount');
                             const cause = this.getAttribute('data-cause');
-                            submitDonation(name, email, amount, cause);
+                            submitDonationPesapal(name, email, amount, cause);
                         });
                     });
 
-                    function donateCustomAmount() {
-                        const name = document.getElementById('donor_name').value.trim();
-                        const email = document.getElementById('donor_email').value.trim();
-                        const amount = document.getElementById('custom_amount').value.trim();
+                    function donateCustomAmountPesapal() {
+                        const name = document.getElementById('donor_name_pesapal').value.trim();
+                        const email = document.getElementById('donor_email_pesapal').value.trim();
+                        const amount = document.getElementById('custom_amount_pesapal').value.trim();
                         
                         if (!name || !email) {
-                            showError('Please enter your name and email first.');
+                            showErrorPesapal('Please enter your name and email first.');
                             return;
                         }
                         
                         if (!validateEmail(email)) {
-                            showError('Please enter a valid email address.');
+                            showErrorPesapal('Please enter a valid email address.');
                             return;
                         }
 
-                        if (!amount || amount < 1000) {
-                            showError('Please enter an amount of at least 1,000 UGX.');
+                        if (!amount || amount < 1) {
+                            showErrorPesapal('Please enter an amount of at least $1 USD.');
                             return;
                         }
 
-                        submitDonation(name, email, amount, 'General Donation');
+                        submitDonationPesapal(name, email, amount, 'General Donation');
                     }
 
-                    function submitDonation(name, email, amount, cause) {
+                    function submitDonationPesapal(name, email, amount, cause) {
                         const csrfToken = sessionStorage.getItem('csrf_token') || generateCSRFToken();
                         document.getElementById('form_donor_name').value = name;
                         document.getElementById('form_donor_email').value = email;
@@ -274,25 +367,109 @@
                         document.getElementById('cause').value = cause;
                         document.getElementById('csrf_token').value = csrfToken;
                         
-                        // Disable button to prevent double-clicks
-                        const btn = event ? event.target : null;
-                        if (btn) {
-                            btn.disabled = true;
-                            btn.textContent = 'Processing...';
-                        }
-                        
                         document.getElementById('pesapal-form').submit();
                     }
 
-                    function validateEmail(email) {
-                        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        return re.test(email);
-                    }
-
-                    function showError(message) {
+                    function showErrorPesapal(message) {
                         const messageDiv = document.getElementById('pesapal-status-message');
                         messageDiv.innerHTML = '<div class="alert alert-danger">' + message + '</div>';
                         messageDiv.scrollIntoView({ behavior: 'smooth' });
+                    }
+
+                    // ===== STRIPE FUNCTIONS =====
+                    
+                    // Handle Stripe preset amount buttons
+                    document.querySelectorAll('.stripe-amount-btn').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const name = document.getElementById('donor_name_stripe').value.trim();
+                            const email = document.getElementById('donor_email_stripe').value.trim();
+                            
+                            if (!name || !email) {
+                                showErrorStripe('Please enter your name and email first.');
+                                return;
+                            }
+                            
+                            if (!validateEmail(email)) {
+                                showErrorStripe('Please enter a valid email address.');
+                                return;
+                            }
+
+                            const amount = this.getAttribute('data-amount');
+                            const cause = this.getAttribute('data-cause');
+                            submitDonationStripe(name, email, amount, cause);
+                        });
+                    });
+
+                    function donateCustomAmountStripe() {
+                        const name = document.getElementById('donor_name_stripe').value.trim();
+                        const email = document.getElementById('donor_email_stripe').value.trim();
+                        const amount = document.getElementById('custom_amount_stripe').value.trim();
+                        
+                        if (!name || !email) {
+                            showErrorStripe('Please enter your name and email first.');
+                            return;
+                        }
+                        
+                        if (!validateEmail(email)) {
+                            showErrorStripe('Please enter a valid email address.');
+                            return;
+                        }
+
+                        if (!amount || amount < 1) {
+                            showErrorStripe('Please enter an amount of at least $1 USD.');
+                            return;
+                        }
+
+                        submitDonationStripe(name, email, amount, 'General Donation');
+                    }
+
+                    function submitDonationStripe(name, email, amount, cause) {
+                        const csrfToken = sessionStorage.getItem('csrf_token') || generateCSRFToken();
+                        document.getElementById('stripe_form_donor_name').value = name;
+                        document.getElementById('stripe_form_donor_email').value = email;
+                        document.getElementById('stripe_amount').value = amount;
+                        document.getElementById('stripe_cause').value = cause;
+                        document.getElementById('stripe_csrf_token').value = csrfToken;
+                        
+                        // Show loading state
+                        showInfoStripe('Processing your donation...');
+                        
+                        // Submit form to create Stripe session
+                        fetch('stripe.php', {
+                            method: 'POST',
+                            body: new FormData(document.getElementById('stripe-form')),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success && data.checkout_url) {
+                                // Redirect to Stripe Checkout
+                                window.location.href = data.checkout_url;
+                            } else {
+                                showErrorStripe(data.error || 'Payment processing error. Please try again.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            showErrorStripe('An error occurred. Please try again.');
+                        });
+                    }
+
+                    function showErrorStripe(message) {
+                        const messageDiv = document.getElementById('stripe-status-message');
+                        messageDiv.innerHTML = '<div class="alert alert-danger">' + message + '</div>';
+                        messageDiv.scrollIntoView({ behavior: 'smooth' });
+                    }
+
+                    function showInfoStripe(message) {
+                        const messageDiv = document.getElementById('stripe-status-message');
+                        messageDiv.innerHTML = '<div class="alert alert-info">' + message + '</div>';
+                    }
+
+                    // ===== SHARED FUNCTIONS =====
+                    
+                    function validateEmail(email) {
+                        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return re.test(email);
                     }
                 </script>
             </div>
@@ -519,9 +696,9 @@
                     <h1 class="fw-bold text-primary mb-4">Child of <span class="text-white">Hope</span></h1>
                     <p>We believe every child deserves love, safety, and a chance to thrive.</p>
                     <div class="d-flex pt-3">
-                        <a class="btn btn-square me-2" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square me-2" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-square me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-square" href="https://www.linkedin.com/in/child-of-hope-childrens-foundation-33411b411/?skipRedirect=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">

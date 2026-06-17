@@ -52,9 +52,9 @@
             <div class="col-12 col-lg-6 px-5 text-end">
                 <small>Follow us:</small>
                 
-                <a class="text-white-50 ms-3" href=""><i class="fab fa-instagram"></i></a>
-                <a class="text-white-50 ms-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="text-white-50 ms-3" href=""><i class="fab fa-instagram"></i></a>
+                <a class="text-white-50 ms-3" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="text-white-50 ms-3" href="https://www.linkedin.com/in/child-of-hope-childrens-foundation-33411b411/?skipRedirect=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="text-white-50 ms-3" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
 
@@ -123,35 +123,36 @@
                     <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Contact Us</div>
                     <h1 class="display-6 mb-5">If You Have Any Query, Please Contact Us</h1>
                     <p class="mb-4">Call or WhatsApp us at <strong>+256 759 687 471</strong> for quick support and questions.</p>
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
+                    <p class="mb-4">Use the contact form below to send us a message. We'll respond as soon as possible to help you with your inquiry.</p>
+                    <div id="contact-status-message"></div>
+                    <form id="contact-form" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-2 px-3 me-3">
+                                <button type="submit" class="btn btn-primary py-2 px-3 me-3" id="submit-btn">
                                     Send Message
                                     <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
@@ -184,9 +185,9 @@
                     <h1 class="fw-bold text-primary mb-4">Child of <span class="text-white">Hope</span></h1>
                     <p>We believe every child deserves love, safety, and a chance to thrive.</p>
                     <div class="d-flex pt-3">
-                        <a class="btn btn-square me-2" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square me-2" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-square me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-square" href="https://www.linkedin.com/in/child-of-hope-childrens-foundation-33411b411/?skipRedirect=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -236,6 +237,81 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js?v=1.0"></script>
+
+    <!-- Contact Form Handler -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const statusMessage = document.getElementById('contact-status-message');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Disable submit button
+                    submitBtn.disabled = true;
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+                    // Get form data
+                    const formData = new FormData(contactForm);
+
+                    // Send via AJAX
+                    fetch('send_email.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        statusMessage.innerHTML = '';
+                        
+                        if (data.success) {
+                            // Show success message
+                            statusMessage.innerHTML = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                                '<i class="fas fa-check-circle me-2"></i>' +
+                                '<strong>Success!</strong> ' + data.message +
+                                '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>' +
+                                '</div>';
+                            
+                            // Reset form
+                            contactForm.reset();
+                            
+                            // Scroll to message
+                            statusMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            // Show error message
+                            statusMessage.innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                                '<i class="fas fa-exclamation-circle me-2"></i>' +
+                                '<strong>Error!</strong> ' + data.message +
+                                '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>' +
+                                '</div>';
+                            
+                            statusMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        statusMessage.innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                            '<i class="fas fa-exclamation-circle me-2"></i>' +
+                            '<strong>Error!</strong> An unexpected error occurred. Please try again.' +
+                            '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>' +
+                            '</div>';
+                        
+                        statusMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -56,9 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $donationCause = isset($_POST['cause']) ? trim(htmlspecialchars($_POST['cause'], ENT_QUOTES, 'UTF-8')) : 'General Donation';
 
     // Validate inputs
-    if ($amount < 1000) {
+    if ($amount < 1) {
         error_log('Pesapal Error: Invalid amount: ' . $amount);
-        die(json_encode(['error' => 'Minimum donation is 1,000 UGX']));
+        die(json_encode(['error' => 'Minimum donation is $1 USD']));
     }
 
     if (!filter_var($donorEmail, FILTER_VALIDATE_EMAIL)) {
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'oauth_nonce' => $nonce,
         'oauth_version' => '1.0',
         'amount' => $amount,
-        'currency' => 'UGX',
+        'currency' => 'USD',
         'description' => $donationCause,
         'reference' => $reference,
         'first_name' => $donorName,
@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $authHeader = rtrim($authHeader, ', ');
 
     // Log transaction attempt
-    error_log("Pesapal: Initiating donation of UGX $amount from $donorEmail (Ref: $reference)");
+    error_log("Pesapal: Initiating donation of USD $amount from $donorEmail (Ref: $reference)");
 
     // Prepare cURL request
     $ch = curl_init();

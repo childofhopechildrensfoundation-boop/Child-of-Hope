@@ -206,7 +206,7 @@ foreach ($transactions as $trans) {
                 <div class="stat-card">
                     <h5><i class="fas fa-check-circle text-success"></i> Completed</h5>
                     <div class="stat-value"><?php echo $completedCount; ?></div>
-                    <p class="text-muted">UGX <?php echo number_format($totalDonations, 0); ?></p>
+                    <p class="text-muted">USD <?php echo number_format($totalDonations, 2); ?></p>
                 </div>
             </div>
             <div class="col-md-3">
