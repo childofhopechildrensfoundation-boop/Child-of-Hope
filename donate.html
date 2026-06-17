@@ -126,98 +126,175 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100 bg-secondary p-5">
-                        <h4 class="text-white mb-4">Select Donation Amount</h4>
+                        <h4 class="text-white mb-4">Select Donation Amount (UGX)</h4>
                         
-                        <!-- PayPal Donation Buttons -->
+                        <!-- Pesapal Donation Form -->
                         <div class="mb-4">
-                            <!-- $10 Donation -->
-                            <form action="https://www.paypal.com/donate" method="post" target="_top" class="mb-3">
-                                <input type="hidden" name="hosted_button_id" value="DONATION_BUTTON_ID">
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
-                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
-                                <input type="hidden" name="amount" value="10.00">
-                                <input type="hidden" name="currency_code" value="USD">
-                                <input type="hidden" name="lc" value="US">
-                                <button type="submit" class="btn btn-light py-2 px-4 w-100 mb-2">
-                                    <i class="fab fa-paypal me-2"></i> Donate $10
-                                </button>
-                            </form>
+                            <div id="pesapal-status-message"></div>
+                            
+                            <!-- Donor Details -->
+                            <div class="mb-3">
+                                <input type="text" id="donor_name" class="form-control bg-light border-0" placeholder="Your Full Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" id="donor_email" class="form-control bg-light border-0" placeholder="Your Email Address" required>
+                            </div>
 
-                            <!-- $20 Donation -->
-                            <form action="https://www.paypal.com/donate" method="post" target="_top" class="mb-3">
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
-                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
-                                <input type="hidden" name="amount" value="20.00">
-                                <input type="hidden" name="currency_code" value="USD">
-                                <input type="hidden" name="lc" value="US">
-                                <button type="submit" class="btn btn-light py-2 px-4 w-100 mb-2">
-                                    <i class="fab fa-paypal me-2"></i> Donate $20
+                            <!-- Preset Amount Buttons -->
+                            <div class="d-grid gap-2 mb-3">
+                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="50000" data-cause="General Donation">
+                                    <i class="fas fa-heart me-2"></i> Donate 50,000 UGX
                                 </button>
-                            </form>
-
-                            <!-- $30 Donation -->
-                            <form action="https://www.paypal.com/donate" method="post" target="_top" class="mb-3">
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
-                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
-                                <input type="hidden" name="amount" value="30.00">
-                                <input type="hidden" name="currency_code" value="USD">
-                                <input type="hidden" name="lc" value="US">
-                                <button type="submit" class="btn btn-light py-2 px-4 w-100 mb-2">
-                                    <i class="fab fa-paypal me-2"></i> Donate $30
+                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="100000" data-cause="General Donation">
+                                    <i class="fas fa-heart me-2"></i> Donate 100,000 UGX
                                 </button>
-                            </form>
-
-                            <!-- $50 Donation -->
-                            <form action="https://www.paypal.com/donate" method="post" target="_top" class="mb-3">
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
-                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
-                                <input type="hidden" name="amount" value="50.00">
-                                <input type="hidden" name="currency_code" value="USD">
-                                <input type="hidden" name="lc" value="US">
-                                <button type="submit" class="btn btn-light py-2 px-4 w-100 mb-2">
-                                    <i class="fab fa-paypal me-2"></i> Donate $50
+                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="200000" data-cause="General Donation">
+                                    <i class="fas fa-heart me-2"></i> Donate 200,000 UGX
                                 </button>
-                            </form>
-
-                            <!-- $100 Donation -->
-                            <form action="https://www.paypal.com/donate" method="post" target="_top" class="mb-3">
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
-                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
-                                <input type="hidden" name="amount" value="100.00">
-                                <input type="hidden" name="currency_code" value="USD">
-                                <input type="hidden" name="lc" value="US">
-                                <button type="submit" class="btn btn-light py-2 px-4 w-100 mb-2">
-                                    <i class="fab fa-paypal me-2"></i> Donate $100
+                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="500000" data-cause="General Donation">
+                                    <i class="fas fa-heart me-2"></i> Donate 500,000 UGX
                                 </button>
-                            </form>
+                                <button type="button" class="btn btn-light py-2 pesapal-amount-btn" data-amount="1000000" data-cause="General Donation">
+                                    <i class="fas fa-heart me-2"></i> Donate 1,000,000 UGX
+                                </button>
+                            </div>
 
                             <!-- Custom Amount -->
-                            <form action="https://www.paypal.com/donate" method="post" target="_top">
-                                <div class="input-group mb-3">
-                                    <input type="number" name="amount" class="form-control bg-light border-0" placeholder="Enter custom amount" step="0.01" min="1" required>
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fab fa-paypal me-2"></i> Donate
-                                    </button>
-                                </div>
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="business" value="childofhopechildrensfoundation@gmail.com">
-                                <input type="hidden" name="item_name" value="Donation to Child of Hope Children's Foundation">
-                                <input type="hidden" name="currency_code" value="USD">
-                                <input type="hidden" name="lc" value="US">
+                            <form id="pesapal-form" action="pesapal.php" method="POST" style="display: none;">
+                                <input type="hidden" id="amount" name="amount" value="">
+                                <input type="hidden" id="cause" name="cause" value="">
+                                <input type="hidden" name="donor_name" id="form_donor_name" value="">
+                                <input type="hidden" name="donor_email" id="form_donor_email" value="">
+                                <input type="hidden" id="csrf_token" name="csrf_token" value="">
                             </form>
+
+                            <div class="input-group mb-3">
+                                <input type="number" id="custom_amount" class="form-control bg-light border-0" placeholder="Enter custom amount (UGX)" step="1" min="1000">
+                                <button type="button" class="btn btn-primary" onclick="donateCustomAmount()">
+                                    <i class="fas fa-heart me-2"></i> Donate
+                                </button>
+                            </div>
                         </div>
 
                         <p class="text-white small mt-4">
                             <i class="fas fa-lock me-2"></i>
-                            Your donation is secure and processed through PayPal
+                            Your donation is secure and processed through Pesapal
                         </p>
                     </div>
                 </div>
+
+                <script>
+                    // Generate and store CSRF token
+                    function generateCSRFToken() {
+                        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                            var r = Math.random() * 16 | 0;
+                            var v = c == 'x' ? r : (r & 0x3 | 0x8);
+                            return v.toString(16);
+                        });
+                    }
+
+                    // Show status message from callback
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Initialize CSRF token if not exists
+                        if (!sessionStorage.getItem('csrf_token')) {
+                            sessionStorage.setItem('csrf_token', generateCSRFToken());
+                        }
+
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const status = urlParams.get('status');
+                        const message = document.getElementById('pesapal-status-message');
+                        
+                        if (status === 'success') {
+                            const amount = urlParams.get('amount');
+                            const ref = urlParams.get('ref');
+                            message.innerHTML = '<div class="alert alert-success"><strong>Success!</strong> Your donation of UGX ' + new Intl.NumberFormat('en-US').format(amount) + ' was processed successfully. A receipt has been sent to your email. Reference: ' + ref + '</div>';
+                            // Clear URL parameters
+                            window.history.replaceState({}, document.title, window.location.pathname);
+                        } else if (status === 'pending') {
+                            const ref = urlParams.get('ref');
+                            message.innerHTML = '<div class="alert alert-info"><strong>Processing...</strong> Your donation is being processed. Reference: ' + ref + ' Please wait while we confirm your payment.</div>';
+                            window.history.replaceState({}, document.title, window.location.pathname);
+                        } else if (status === 'failed' || status === 'error') {
+                            const ref = urlParams.get('ref');
+                            message.innerHTML = '<div class="alert alert-danger"><strong>Payment Failed</strong> Your payment was not completed. Please try again or contact support. Reference: ' + (ref || 'N/A') + '</div>';
+                            window.history.replaceState({}, document.title, window.location.pathname);
+                        }
+                    });
+
+                    // Handle preset amount buttons
+                    document.querySelectorAll('.pesapal-amount-btn').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const name = document.getElementById('donor_name').value.trim();
+                            const email = document.getElementById('donor_email').value.trim();
+                            
+                            if (!name || !email) {
+                                showError('Please enter your name and email first.');
+                                return;
+                            }
+                            
+                            if (!validateEmail(email)) {
+                                showError('Please enter a valid email address.');
+                                return;
+                            }
+
+                            const amount = this.getAttribute('data-amount');
+                            const cause = this.getAttribute('data-cause');
+                            submitDonation(name, email, amount, cause);
+                        });
+                    });
+
+                    function donateCustomAmount() {
+                        const name = document.getElementById('donor_name').value.trim();
+                        const email = document.getElementById('donor_email').value.trim();
+                        const amount = document.getElementById('custom_amount').value.trim();
+                        
+                        if (!name || !email) {
+                            showError('Please enter your name and email first.');
+                            return;
+                        }
+                        
+                        if (!validateEmail(email)) {
+                            showError('Please enter a valid email address.');
+                            return;
+                        }
+
+                        if (!amount || amount < 1000) {
+                            showError('Please enter an amount of at least 1,000 UGX.');
+                            return;
+                        }
+
+                        submitDonation(name, email, amount, 'General Donation');
+                    }
+
+                    function submitDonation(name, email, amount, cause) {
+                        const csrfToken = sessionStorage.getItem('csrf_token') || generateCSRFToken();
+                        document.getElementById('form_donor_name').value = name;
+                        document.getElementById('form_donor_email').value = email;
+                        document.getElementById('amount').value = amount;
+                        document.getElementById('cause').value = cause;
+                        document.getElementById('csrf_token').value = csrfToken;
+                        
+                        // Disable button to prevent double-clicks
+                        const btn = event ? event.target : null;
+                        if (btn) {
+                            btn.disabled = true;
+                            btn.textContent = 'Processing...';
+                        }
+                        
+                        document.getElementById('pesapal-form').submit();
+                    }
+
+                    function validateEmail(email) {
+                        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return re.test(email);
+                    }
+
+                    function showError(message) {
+                        const messageDiv = document.getElementById('pesapal-status-message');
+                        messageDiv.innerHTML = '<div class="alert alert-danger">' + message + '</div>';
+                        messageDiv.scrollIntoView({ behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </div>
     </div>
