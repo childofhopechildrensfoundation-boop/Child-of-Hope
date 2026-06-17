@@ -2,10 +2,10 @@
 
 ## 🎯 Your 3 Main Tasks:
 
-### 1️⃣ STRIPE ACCOUNT (15 min)
-- [ ] Sign up at https://stripe.com
-- [ ] Get Test API keys from Dashboard
-- [ ] Update .env file with keys
+### 1️⃣ PESAPAL ACCOUNT (if not already configured)
+- [ ] Verify Pesapal account is set up
+- [ ] Confirm credentials in .env file
+- [ ] Test payment gateway access
 
 ### 2️⃣ BLUEHOST HOSTING (25 min)
 - [ ] Sign up at https://www.bluehost.com/pricing
@@ -33,15 +33,9 @@ FTP Password:    ________________
 cPanel URL:      ________________
 cPanel Password: ________________
 
-STRIPE (TEST KEYS):
-Publishable:     pk_test_________________
-Secret:          sk_test__________________
-Webhook Secret:  whsec_test_________________
-
-STRIPE (LIVE KEYS - LATER):
-Publishable:     pk_live_________________
-Secret:          sk_live__________________
-Webhook Secret:  whsec_live_________________
+PESAPAL:
+Consumer Key:    ________________
+Consumer Secret: ________________
 ```
 
 ---

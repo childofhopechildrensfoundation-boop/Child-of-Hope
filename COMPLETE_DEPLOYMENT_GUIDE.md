@@ -8,43 +8,13 @@
 
 # 📋 DEPLOYMENT CHECKLIST
 
-## Phase 1: Stripe Account Setup (15-20 min)
+## Phase 1: Verify Pesapal Configuration (5 min)
 
-### Step 1: Create Stripe Account
-- [ ] Go to https://stripe.com
-- [ ] Click "Start now" 
-- [ ] Sign up with email: `childofhopechildrensfoundation@gmail.com`
-- [ ] Create password (save it!)
-- [ ] Select "Business" account type
-- [ ] Enter nonprofit details:
-  - Organization: `Child of Hope Children's Foundation`
-  - Country: `Uganda`
-  - Nonprofit status: Mark as nonprofit
+Your Pesapal account is already configured with:
+- Consumer Key: `EnOIU7iJ1EV/ilL7YHvFi3f8Vu/JVAMq`
+- Consumer Secret: `xIGCZxylKTXtiqLCNX2ahy8w9Yg=`
 
-### Step 2: Verify Email
-- [ ] Check email inbox
-- [ ] Click verification link from Stripe
-- [ ] Complete phone verification (may be required)
-
-### Step 3: Get API Keys
-- [ ] Log into Stripe Dashboard: https://dashboard.stripe.com
-- [ ] Go to: **Developers** → **API keys** (left sidebar)
-- [ ] **TEST MODE** (toggle in top right)
-  - [ ] Copy **Publishable Key** (starts with `pk_test_`)
-  - [ ] Copy **Secret Key** (starts with `sk_test_`)
-- [ ] Save these temporarily (you'll add to .env)
-
-### Step 4: Configure Webhook
-- [ ] In Stripe Dashboard: **Developers** → **Webhooks**
-- [ ] Click **"Add endpoint"**
-- [ ] **Endpoint URL:** (we'll set this after Bluehost is ready)
-  - For now, enter: `https://yourfuturedomain.com/stripe_webhook.php`
-  - Or leave blank for now - we'll add it later
-- [ ] **Events to send:**
-  - ✅ `charge.completed`
-  - ✅ `charge.failed`
-- [ ] Click **"Add endpoint"**
-- [ ] Copy the **Signing secret** (starts with `whsec_test_`)
+These credentials are already in your `.env` file. No additional setup needed!
 
 ---
 
@@ -100,26 +70,20 @@
 
 ---
 
-## Phase 3: Update .env File (5 min)
+## Phase 3: Update .env File (1 min)
 
-Edit `.env` file and add your credentials:
+Your `.env` file is already configured with Pesapal credentials:
 
 ```env
-# Pesapal (already configured)
 PESAPAL_SANDBOX=false
 PESAPAL_CONSUMER_KEY=EnOIU7iJ1EV/ilL7YHvFi3f8Vu/JVAMq
 PESAPAL_CONSUMER_SECRET=xIGCZxylKTXtiqLCNX2ahy8w9Yg=
-
-# Stripe API Keys (add your TEST keys here first)
-STRIPE_PUBLIC_KEY=pk_test_YOUR_PUBLIC_KEY_HERE
-STRIPE_SECRET_KEY=sk_test_YOUR_SECRET_KEY_HERE
-STRIPE_WEBHOOK_SECRET=whsec_test_YOUR_WEBHOOK_SECRET_HERE
 
 # Admin password (CHANGE THIS!)
 ADMIN_PASSWORD=changeme123
 ```
 
-**Replace the Stripe keys with the ones you copied from Stripe Dashboard.**
+No additional configuration needed - Pesapal credentials are already set!
 
 ---
 
@@ -131,12 +95,10 @@ ADMIN_PASSWORD=changeme123
 ✅ /pesapal.php (6.6 KB)
 ✅ /pesapal_callback.php (8.1 KB)
 ✅ /pesapal_admin.php (existing)
-✅ /stripe.php (5.6 KB)
-✅ /stripe_webhook.php (4.9 KB)
 ✅ /admin_dashboard.php (14 KB)
 ✅ /donate.html (44 KB - UPDATED)
-✅ /.env (0.5 KB - UPDATE WITH YOUR KEYS)
-✅ /vendor/ (entire Stripe library folder)
+✅ /.env (0.5 KB)
+✅ /vendor/ (PHP dependencies folder)
 ✅ /composer.json (updated)
 ✅ /composer.lock (dependency lock file)
 ```
@@ -164,11 +126,9 @@ ADMIN_PASSWORD=changeme123
 8. [ ] Select all payment files (drag & drop to right panel):
    - `pesapal.php`
    - `pesapal_callback.php`
-   - `stripe.php`
-   - `stripe_webhook.php`
    - `admin_dashboard.php`
    - `donate.html`
-   - `.env` (uploaded last, with your real keys!)
+   - `.env`
    - `composer.json`
    - `composer.lock`
 9. [ ] Drag entire `vendor/` folder to upload
@@ -190,7 +150,7 @@ ADMIN_PASSWORD=changeme123
 
 1. [ ] Open browser: `https://yourdomainname.com/donate.html`
    - Should load ✅ with donation form
-   - Should show both **Pesapal** and **Stripe** tabs
+   - Should show **Pesapal** tab
 
 2. [ ] Check admin dashboard: `https://yourdomainname.com/admin_dashboard.php`
    - Login with password from `.env`
@@ -199,89 +159,36 @@ ADMIN_PASSWORD=changeme123
 3. [ ] Test Pesapal tab: `https://yourdomainname.com/pesapal.php`
    - (Should give error if accessed directly - this is normal)
 
-4. [ ] Test Stripe tab: `https://yourdomainname.com/stripe.php`
-   - (Should give error if accessed directly - this is normal)
-
 ---
 
-## Phase 6: Update Stripe Webhook URL (5 min)
+## Phase 6: Test Pesapal Payment (10-15 min)
 
-Now that you have your domain, set the real webhook URL:
-
-1. [ ] Go to Stripe Dashboard
-2. [ ] **Developers** → **Webhooks**
-3. [ ] If you added an endpoint earlier:
-   - [ ] Click on it
-   - [ ] Update URL to: `https://yourdomainname.com/stripe_webhook.php`
-   - [ ] Click **Update**
-4. [ ] If you didn't add one yet:
-   - [ ] Click **"Add an endpoint"**
-   - [ ] URL: `https://yourdomainname.com/stripe_webhook.php`
-   - [ ] Events: `charge.completed` + `charge.failed`
-   - [ ] Click **"Add endpoint"**
-
----
-
-## Phase 7: Test Stripe Payment (10-15 min)
-
-### Test with TEST Credit Card:
+### Test with Pesapal:
 
 1. [ ] Go to: `https://yourdomainname.com/donate.html`
-2. [ ] Click **"Stripe"** tab
-3. [ ] Fill in form:
+2. [ ] Fill in form:
    - **Name:** `Test Donor`
    - **Email:** Your email
-   - **Amount:** `$10`
-4. [ ] Click **"Donate $10 USD"** (or custom amount)
-5. [ ] You'll see loading message, then redirect to **Stripe Checkout**
-6. [ ] On Stripe Checkout page:
-   - **Card Number:** `4242 4242 4242 4242`
-   - **Expiry:** `12/25`
-   - **CVC:** `123`
-   - **Name:** `Test Donor`
-7. [ ] Click **"Pay"**
-8. [ ] After success, you should see:
-   - ✅ Success message on your site
-   - Transaction reference number
+   - **Amount:** `$5`
+3. [ ] Click **"Donate $5 USD"** button
+4. [ ] You'll be redirected to **Pesapal Gateway**
+5. [ ] Complete payment on Pesapal 
+6. [ ] Return to your site - should see success message
 
 ### Verify Transaction Was Logged:
 
-9. [ ] Go to: `https://yourdomainname.com/admin_dashboard.php`
-10. [ ] Login with your admin password
-11. [ ] You should see the test transaction in the table!
+7. [ ] Go to: `https://yourdomainname.com/admin_dashboard.php`
+8. [ ] Login with your admin password
+9. [ ] You should see the test transaction in the table!
 
 ### Verify Email Receipt:
 
-12. [ ] Check your email (the one you used for donation)
-13. [ ] You should receive a receipt email from Stripe payment
+10. [ ] Check your email (the one you used for donation)
+11. [ ] You should receive a receipt email
 
 ---
 
-## Phase 8: Test Pesapal Payment (10-15 min)
-
-### Test with Pesapal Sandbox:
-
-1. [ ] Go to: `https://yourdomainname.com/donate.html`
-2. [ ] Click **"Pesapal"** tab
-3. [ ] Fill in form:
-   - **Name:** `Test Pesapal Donor`
-   - **Email:** Your email
-   - **Amount:** `$5`
-4. [ ] Click **"Donate $5 USD"** button
-5. [ ] You'll be redirected to **Pesapal Checkout**
-6. [ ] Complete payment on Pesapal (use test merchant account)
-7. [ ] Return to your site - should see success message
-
-### Verify Transaction Was Logged:
-
-8. [ ] Go to: `https://yourdomainname.com/admin_dashboard.php`
-9. [ ] You should now see BOTH transactions:
-   - Stripe payment ✅
-   - Pesapal payment ✅
-
----
-
-## Phase 9: Security Checklist (10 min)
+## Phase 7: Security Checklist (10 min)
 
 ### Before Going Public:
 
@@ -309,53 +216,31 @@ Now that you have your domain, set the real webhook URL:
 
 ---
 
-## Phase 10: Going LIVE (When Ready)
+## Phase 8: Going LIVE (When Ready)
 
-### Switch to Live Stripe Keys:
+### Your system is ready for production!
 
-1. [ ] Go to Stripe Dashboard
-2. [ ] Toggle to **"Live"** mode (top right)
-3. [ ] Copy your LIVE keys:
-   - `pk_live_...`
-   - `sk_live_...`
-4. [ ] Get LIVE webhook secret
+1. [ ] Verify all settings are correct in `.env`
+2. [ ] Test with a small real payment ($1 USD)
+3. [ ] Verify transaction in admin dashboard
+4. [ ] Check receipt email is sent correctly
+5. [ ] Announce to your community!
 
-### Update .env on Server:
+### Start Receiving Donations:
 
-5. [ ] Edit `.env` via FTP
-6. [ ] Replace TEST keys with LIVE keys:
-   ```env
-   STRIPE_PUBLIC_KEY=pk_live_YOUR_KEY
-   STRIPE_SECRET_KEY=sk_live_YOUR_KEY
-   STRIPE_WEBHOOK_SECRET=whsec_live_YOUR_SECRET
-   ```
-7. [ ] Save & upload `.env`
-
-### Test Real Payment:
-
-8. [ ] Go to your donation page
-9. [ ] Use REAL credit card with small amount ($1)
-10. [ ] Complete payment
-11. [ ] Verify in admin dashboard
-12. [ ] Check receipt email
-
-### Announce to Donors:
-
-13. [ ] Share your donation page with your community
-14. [ ] Link from your social media
-15. [ ] Newsletter announcements
-16. [ ] Start receiving donations! 🎉
+6. [ ] Share your donation page link
+7. [ ] Link from social media (Instagram, LinkedIn)
+8. [ ] Newsletter announcements
+9. [ ] Start helping more children! 🎉
 
 ---
 
 # 📊 FILE SUMMARY
 
-## Total Upload Size: ~120 KB (including vendor/)
+## Total Upload Size: ~500 KB (including vendor/)
 
 ```
 Core Payment Files: 
-- stripe.php                   5.6 KB
-- stripe_webhook.php           4.9 KB  
 - pesapal.php                  6.6 KB
 - pesapal_callback.php         8.1 KB
 - admin_dashboard.php         14.0 KB
@@ -365,7 +250,7 @@ Core Payment Files:
 - composer.lock                5.2 KB
 
 Dependencies:
-- vendor/ (Stripe library)    ~30 MB
+- vendor/ (PHP libraries)     ~500 KB
 ```
 
 ---
@@ -377,26 +262,23 @@ Dependencies:
 URL: https://yourdomainname.com/admin_dashboard.php
 Password: Check .env ADMIN_PASSWORD
 Features:
-- View all transactions (Pesapal + Stripe)
+- View all Pesapal transactions
 - See donation statistics
 - Export to CSV
-- Monitor fraud
+- Monitor donations
 ```
 
 ## Donation Page
 ```
 URL: https://yourdomainname.com/donate.html
 Payment Methods:
-- Pesapal (mobile money, E-wallets)
-- Stripe (credit cards, digital wallets)
+- Pesapal (mobile money, E-wallets, cards)
 ```
 
 ## Important Endpoints
 ```
 - Pesapal Handler: /pesapal.php
 - Pesapal Webhook: /pesapal_callback.php
-- Stripe Handler: /stripe.php
-- Stripe Webhook: /stripe_webhook.php
 - Admin Dashboard: /admin_dashboard.php
 - Donation Form: /donate.html
 ```
@@ -405,16 +287,10 @@ Payment Methods:
 
 # ⚠️ TROUBLESHOOTING
 
-## "Webhook not received"
-- ✅ Verify URL in Stripe Dashboard matches your domain
-- ✅ Ensure domain is public (not localhost)
-- ✅ Check that `/stripe_webhook.php` file exists
-- ✅ Wait 30 seconds after payment for webhook to fire
-
-## "Payment declined"
-- ✅ Use correct test card: `4242 4242 4242 4242`
-- ✅ Use future expiry date
-- ✅ Try a different card (some test cards are restricted)
+## "Payment not received"
+- ✅ Wait 30 seconds for Pesapal to process
+- ✅ Check your Pesapal dashboard
+- ✅ Verify webhook is configured correctly
 
 ## "Transaction not in dashboard"
 - ✅ Wait 5-10 seconds for webhook to process
@@ -435,8 +311,8 @@ Payment Methods:
 
 # 📞 SUPPORT
 
-- 🔗 Stripe Help: https://support.stripe.com
 - 🔗 Pesapal Help: https://developer.pesapal.com
+- 🔗 Pesapal Dashboard: https://www.pesapal.com
 - 🔗 Bluehost Help: https://www.bluehost.com/help
 - 📧 Email: childofhopechildrensfoundation@gmail.com
 
@@ -444,4 +320,4 @@ Payment Methods:
 
 **✅ Status: Ready for deployment!**
 
-**Next Step: Start with Phase 1 (Stripe Account Setup)**
+**Next Step: Start with Phase 1 (Pesapal Verification)**

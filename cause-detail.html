@@ -120,13 +120,13 @@
         }
 
         /* Payment buttons styling */
-        .pesapal-amount-btn:hover, .stripe-amount-btn:hover {
+        .pesapal-amount-btn:hover {
             background-color: #E85D00 !important;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 111, 15, 0.3);
         }
 
-        .pesapal-amount-btn, .stripe-amount-btn {
+        .pesapal-amount-btn {
             transition: all 0.3s ease;
         }
 
@@ -349,11 +349,6 @@
                                     <i class="fas fa-mobile-alt me-2"></i> Pesapal
                                 </button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link text-white" id="stripe-tab" data-bs-toggle="tab" data-bs-target="#stripe-payment" type="button" role="tab" aria-controls="stripe-payment" aria-selected="false">
-                                    <i class="fas fa-credit-card me-2"></i> Stripe
-                                </button>
-                            </li>
                         </ul>
 
                         <!-- Tab Content -->
@@ -402,53 +397,6 @@
                                 <p class="text-white small mt-4">
                                     <i class="fas fa-lock me-2"></i>
                                     Your donation is secure and processed through Pesapal
-                                </p>
-                            </div>
-
-                            <!-- Stripe Tab -->
-                            <div class="tab-pane fade" id="stripe-payment" role="tabpanel" aria-labelledby="stripe-tab">
-                                <div id="stripe-status-message"></div>
-                                
-                                <div class="mb-3">
-                                    <input type="text" id="donor_name_stripe" class="form-control" placeholder="Your Full Name" required style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" id="donor_email_stripe" class="form-control" placeholder="Your Email Address" required style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
-                                </div>
-
-                                <div class="d-grid gap-2 mb-3">
-                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="25" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
-                                        <i class="fas fa-heart me-2"></i> Donate $25 USD
-                                    </button>
-                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="50" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
-                                        <i class="fas fa-heart me-2"></i> Donate $50 USD
-                                    </button>
-                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="100" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
-                                        <i class="fas fa-heart me-2"></i> Donate $100 USD
-                                    </button>
-                                    <button type="button" class="btn py-2 stripe-amount-btn" data-amount="200" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
-                                        <i class="fas fa-heart me-2"></i> Donate $200 USD
-                                    </button>
-                                </div>
-
-                                <form id="stripe-form" action="stripe.php" method="POST" style="display: none;">
-                                    <input type="hidden" id="stripe_amount" name="amount" value="">
-                                    <input type="hidden" id="stripe_cause" name="cause" value="">
-                                    <input type="hidden" name="donor_name" id="stripe_form_donor_name" value="">
-                                    <input type="hidden" name="donor_email" id="stripe_form_donor_email" value="">
-                                    <input type="hidden" id="stripe_csrf_token" name="csrf_token" value="">
-                                </form>
-
-                                <div class="input-group mb-3">
-                                    <input type="number" id="custom_amount_stripe" class="form-control" placeholder="Custom amount (USD)" step="0.01" min="1" style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
-                                    <button type="button" class="btn" onclick="donateCustomAmountStripe()" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
-                                        <i class="fas fa-heart me-2"></i> Donate
-                                    </button>
-                                </div>
-
-                                <p class="text-white small mt-4">
-                                    <i class="fas fa-lock me-2"></i>
-                                    Your donation is secure and processed through Stripe
                                 </p>
                             </div>
                         </div>
