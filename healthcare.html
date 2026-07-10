@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Healthcare For African Children - Child of Hope Children's Foundation">
+    <title>Healthcare Support | Child of Hope Children's Foundation</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        .program-hero {
+            background: linear-gradient(135deg, rgba(15, 93, 166, 0.85) 0%, rgba(41, 128, 185, 0.85) 100%), url('images/antiretroviral-truvada-569fdee85f9b58eba4ad8db5.jpg') center/cover;
+            padding: 120px 0 80px;
+            margin-top: 60px;
+            color: white;
+        }
+        
+        .image-section {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin: 2rem 0;
+        }
+        
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .detail-content {
+            line-height: 1.8;
+        }
+        
+        .detail-content ul li {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
+        
+        .detail-content ul li i {
+            color: #F7941D;
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(247, 148, 29, 0.1) 0%, rgba(230, 126, 34, 0.1) 100%);
+            border-left: 4px solid #F7941D;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .stats-section {
+            background: #f8fafc;
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #F7941D;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #F7941D 0%, #E67E22 100%);
+            color: white;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .donation-box {
+            background: linear-gradient(135deg, #0F5DA6 0%, #2980B9 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            color: white;
+            box-shadow: 0 8px 24px rgba(15, 93, 166, 0.3);
+            margin: 2rem 0;
+        }
+        
+        .donation-box h3 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-donate-large {
+            background: linear-gradient(135deg, #F7941D 0%, #E67E22 100%);
+            border: none;
+            color: white;
+            padding: 0.85rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            min-width: 190px;
+        }
+
+        .btn-donate-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(247, 148, 29, 0.35);
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNavbar">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="brand-icon">🤝</span>
+                <span class="brand-text">Child of Hope</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="causes.html">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-donate" href="donate.html">
+                            <i class="fas fa-heart"></i> Donate
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header / Hero -->
+    <section class="program-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem;">Healthcare Support</h1>
+                    <p style="font-size: 1.2rem; opacity: 0.95; line-height: 1.8;">Every child deserves access to healthcare and preventive care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section style="padding: 5rem 0; background: white;">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="row g-5 mb-5" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <div class="image-section">
+                        <img src="images/antiretroviral-truvada-569fdee85f9b58eba4ad8db5.jpg" alt="Healthcare Program">
+                    </div>
+                </div>
+                <div class="col-lg-6 detail-content">
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0F5DA6;">Good Health Enables Learning</h2>
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Many children in vulnerable communities lack access to basic healthcare and preventive medical services. Without proper health support, children struggle to attend school, concentrate on learning, and reach their full potential.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.8;">
+                        At Child of Hope Children's Foundation, we provide essential medical care, treatment support, vaccinations, health screenings, and compassionate care for children living with HIV and other vulnerable children in need.
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <h4 style="color: #F7941D; margin-bottom: 1rem;">Our Goal</h4>
+                        <p style="margin: 0; color: #666;">
+                            Ensure children can access preventive care, timely treatment, healthy living support, and the medical attention needed to stay well, attend school, and grow into healthy adults.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Vision -->
+            <div class="row g-5 mb-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="image-section">
+                        <img src="images/about-child-portrait.jpg" alt="Health Screening">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1 detail-content">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem; color: #0F5DA6;">Our Vision</h2>
+                    <p style="font-size: 1rem; color: #666; margin-bottom: 2rem;">
+                        We envision a future where every child has access to quality healthcare and preventive services, enabling them to grow strong, healthy, and ready to succeed.
+                    </p>
+                    
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Provide medical check-ups and screenings</strong> for early disease detection
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Deliver vaccination programs</strong> to prevent common illnesses
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Offer treatment and health education</strong> for better health outcomes
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Refer families to specialists</strong> when needed for advanced care
+                        </li>
+                    </ul>
+                    
+                    <p style="font-size: 0.95rem; color: #999; margin-top: 2rem;">
+                        <em>Your healthcare support directly improves child attendance, academic performance, and long-term well-being.</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Program Details -->
+            <div class="row mb-5" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-12">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; color: #0F5DA6; text-align: center;">What We Provide</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #0F5DA6;">
+                                <i class="fas fa-stethoscope" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Medical Check-ups</h5>
+                                <p style="color: #666; margin: 0;">Regular screenings and health assessments</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #F7941D;">
+                                <i class="fas fa-syringe" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Vaccination Programs</h5>
+                                <p style="color: #666; margin: 0;">Disease prevention through immunization</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #10B981;">
+                                <i class="fas fa-pills" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Treatment Support</h5>
+                                <p style="color: #666; margin: 0;">Medicine and care for common illnesses</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #8B5CF6;">
+                                <i class="fas fa-hospital" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Specialist Referrals</h5>
+                                <p style="color: #666; margin: 0;">Access to specialized medical care</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #EC4899;">
+                                <i class="fas fa-book-medical" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Health Education</h5>
+                                <p style="color: #666; margin: 0;">Knowledge for healthier living</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #F59E0B;">
+                                <i class="fas fa-brain" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Mental Health</h5>
+                                <p style="color: #666; margin: 0;">Psychosocial support services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact & Support -->
+            <div class="row g-5 mb-5" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-lg-6">
+                    <div class="image-section">
+                        <img src="images/hero-contact.jpg" alt="Health Impact">
+                    </div>
+                </div>
+                <div class="col-lg-6 detail-content">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem; color: #0F5DA6;">Why Healthcare Matters</h2>
+                    <p style="font-size: 1rem; color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Healthy children perform better in school and build stronger futures. With healthcare support, children are more likely to:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Attend school consistently and improve academic performance
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Develop stronger immune systems and fight diseases
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Achieve better nutrition and physical development
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Have improved mental health and emotional resilience
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Build long-term health foundations for adulthood
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Children Living with HIV Section -->
+    <section style="padding: 5rem 0; background: #f8fafc;">
+        <div class="container">
+            <div class="row g-5 mb-5" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <div class="image-section">
+                        <img src="images/hero-school-walk.jpg" alt="HIV Support Program">
+                    </div>
+                </div>
+                <div class="col-lg-6 detail-content">
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0F5DA6;">Children Living with HIV</h2>
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Children living with HIV face unique challenges: they need consistent antiretroviral therapy (ART), regular medical monitoring, nutritional support, and psychosocial care. Without proper support, they struggle with health complications, school attendance, and social stigma.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.8;">
+                        At Child of Hope Children's Foundation, we provide comprehensive support to HIV-positive children and their families, including medication access, nutrition programs, counseling, and community education to fight stigma.
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <h4 style="color: #F7941D; margin-bottom: 1rem;">Our Commitment</h4>
+                        <p style="margin: 0; color: #666;">
+                            We ensure HIV-positive children receive antiretroviral therapy, nutritional support, regular medical monitoring, and psychosocial care so they can live healthy, dignified, and productive lives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIV Support Services -->
+            <div class="row mb-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-12">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; color: #0F5DA6; text-align: center;">HIV Support Services</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #E74C3C; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                <i class="fas fa-pills" style="font-size: 2.2rem; color: #E74C3C; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 0.75rem;">ART Treatment</h5>
+                                <p style="color: #666; margin: 0; font-size: 0.95rem;">Antiretroviral therapy access and adherence support</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #16A085; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                <i class="fas fa-apple-alt" style="font-size: 2.2rem; color: #16A085; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 0.75rem;">Nutrition</h5>
+                                <p style="color: #666; margin: 0; font-size: 0.95rem;">Nutritional support for immune system health</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #2980B9; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                <i class="fas fa-heartbeat" style="font-size: 2.2rem; color: #2980B9; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 0.75rem;">Monitoring</h5>
+                                <p style="color: #666; margin: 0; font-size: 0.95rem;">Regular CD4 and viral load testing</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #8E44AD; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                <i class="fas fa-heart" style="font-size: 2.2rem; color: #8E44AD; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 0.75rem;">Counseling</h5>
+                                <p style="color: #666; margin: 0; font-size: 0.95rem;">Psychosocial support and stigma reduction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Message -->
+            <div class="row g-5" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="image-section">
+                        <img src="images/antiretroviral-truvada-569fdee85f9b58eba4ad8db5.jpg" alt="HIV Impact">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1 detail-content">
+                    <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; color: #0F5DA6;">Living with Hope</h3>
+                    <p style="font-size: 1rem; color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        With comprehensive HIV support, children can:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Maintain undetectable viral loads and stay healthy
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Attend school consistently and succeed academically
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Build healthy, fulfilling relationships
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Experience reduced stigma and social discrimination
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Plan hopeful futures with confidence and dignity
+                        </li>
+                    </ul>
+                    <p style="font-size: 0.95rem; color: #999; margin-top: 2rem;">
+                        <em>"U=U: Undetectable = Untransmittable" — with proper treatment, HIV-positive children can live long, healthy lives.</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" data-aos="zoom-in">
+        <div class="container">
+            <h2>Make a Difference in a Child's Health</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">
+                Your donation provides healthcare services, vaccinations, and medical support that save lives.
+            </p>
+            <a href="donate.html" class="btn-donate-large">
+                <i class="fas fa-heart me-2"></i> Donate Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section style="padding: 5rem 0; background: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="program-header" style="font-size: 2rem; font-weight: 800; margin-bottom: 2rem; text-align: center;">Support Healthcare Today</h2>
+                    
+                    <div class="donation-box">
+                        <h3 style="font-size: 1.6rem; margin-bottom: 1rem; text-align:center;">How Your Gift Helps</h3>
+                        <p style="margin-bottom: 1.25rem; line-height: 1.7; text-align:center;">Deliver vital medical support to children and families.</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 1.5rem;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2); font-size: 1rem; line-height: 1.6;">
+                                🩺 <strong>Vaccinations and clinic care</strong> when children need it most.
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2); font-size: 1rem; line-height: 1.6;">
+                                💊 <strong>Medicine and follow-up support</strong> for families.
+                            </li>
+                            <li style="padding: 0.75rem 0; font-size: 1rem; line-height: 1.6;">
+                                ❤️ <strong>HIV care and referrals</strong> for children and caregivers.
+                            </li>
+                        </ul>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #F7941D;">
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">
+                                <strong>We use every donation carefully and transparently to protect children’s health.</strong>
+                            </p>
+                        </div>
+                        <div style="margin-top: 2rem; text-align: center;">
+                            <a href="donate.html" class="btn-donate-large">
+                                Donate Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <p style="text-align: center; color: #999; margin-top: 2rem; font-size: 0.95rem;">
+                        💡 <strong>Did you know?</strong> A $50 donation provides medical screening and vaccines for multiple children.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white-50 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <h5 class="text-white fw-bold mb-2">Child of Hope Children's Foundation</h5>
+                    <p class="small mb-0">&copy; 2026 All Rights Reserved</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">Transforming lives of vulnerable children</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

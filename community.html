@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Community Development For African Children - Child of Hope Children's Foundation">
+    <title>Community Development | Child of Hope Children's Foundation</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        .program-hero {
+            background: linear-gradient(135deg, rgba(15, 93, 166, 0.85) 0%, rgba(41, 128, 185, 0.85) 100%), url('images/hero-school-walk.jpg') center/cover;
+            padding: 120px 0 80px;
+            margin-top: 60px;
+            color: white;
+        }
+        
+        .image-section {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin: 2rem 0;
+        }
+        
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .detail-content {
+            line-height: 1.8;
+        }
+        
+        .detail-content ul li {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
+        
+        .detail-content ul li i {
+            color: #F7941D;
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(247, 148, 29, 0.1) 0%, rgba(230, 126, 34, 0.1) 100%);
+            border-left: 4px solid #F7941D;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #F7941D 0%, #E67E22 100%);
+            color: white;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .donation-box {
+            background: linear-gradient(135deg, #0F5DA6 0%, #2980B9 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            color: white;
+            box-shadow: 0 8px 24px rgba(15, 93, 166, 0.3);
+            margin: 2rem 0;
+        }
+        
+        .donation-box h3 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-donate-large {
+            background: linear-gradient(135deg, #F7941D 0%, #E67E22 100%);
+            border: none;
+            color: white;
+            padding: 0.85rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            min-width: 190px;
+        }
+
+        .btn-donate-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(247, 148, 29, 0.35);
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNavbar">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="brand-icon">🤝</span>
+                <span class="brand-text">Child of Hope</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="causes.html">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-donate" href="donate.html">
+                            <i class="fas fa-heart"></i> Donate
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header / Hero -->
+    <section class="program-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem;">Community Development</h1>
+                    <p style="font-size: 1.2rem; opacity: 0.95; line-height: 1.8;">Strengthening families and communities for sustainable impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section style="padding: 5rem 0; background: white;">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="row g-5 mb-5" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <div class="image-section">
+                        <img src="images/hero-school-walk.jpg" alt="Community Development Program">
+                    </div>
+                </div>
+                <div class="col-lg-6 detail-content">
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0F5DA6;">Strong Communities Create Protected Children</h2>
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Children thrive when their families and communities are strong. By strengthening families, building community awareness, and fostering economic empowerment, we create protective environments where vulnerable children can grow safely and securely.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.8;">
+                        At Child of Hope Children's Foundation, we invest in community development to strengthen families, improve protection systems, and build lasting local support for children and caregivers.
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <h4 style="color: #F7941D; margin-bottom: 1rem;">Our Goal</h4>
+                        <p style="margin: 0; color: #666;">
+                            Strengthen families and communities through capacity building, economic empowerment, awareness, and practical programs that create safer and more sustainable environments for children to thrive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Vision -->
+            <div class="row g-5 mb-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="image-section">
+                        <img src="images/program-construction-1.jpg" alt="Community Engagement">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1 detail-content">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem; color: #0F5DA6;">Our Vision</h2>
+                    <p style="font-size: 1rem; color: #666; margin-bottom: 2rem;">
+                        We envision resilient communities where families are economically empowered, child protection is prioritized, and every child has the opportunity to reach their potential.
+                    </p>
+                    
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Build community capacity</strong> for child protection and development
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Empower families economically</strong> through livelihood support
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Raise awareness</strong> about child welfare and community development
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Coordinate volunteers</strong> and community resources for maximum impact
+                        </li>
+                    </ul>
+                    
+                    <p style="font-size: 0.95rem; color: #999; margin-top: 2rem;">
+                        <em>Community development creates the conditions where children flourish and futures brighten.</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Program Details -->
+            <div class="row mb-5" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-12">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; color: #0F5DA6; text-align: center;">What We Provide</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #0F5DA6;">
+                                <i class="fas fa-building" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Capacity Building</h5>
+                                <p style="color: #666; margin: 0;">Community skills and knowledge development</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #F7941D;">
+                                <i class="fas fa-hands-helping" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Parenting Programs</h5>
+                                <p style="color: #666; margin: 0;">Family support and parenting education</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #10B981;">
+                                <i class="fas fa-briefcase" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Economic Support</h5>
+                                <p style="color: #666; margin: 0;">Livelihood and business training</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #8B5CF6;">
+                                <i class="fas fa-megaphone" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Awareness Campaigns</h5>
+                                <p style="color: #666; margin: 0;">Community education and advocacy</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #EC4899;">
+                                <i class="fas fa-users" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Volunteer Network</h5>
+                                <p style="color: #666; margin: 0;">Community volunteerism coordination</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center; border-top: 4px solid #F59E0B;">
+                                <i class="fas fa-leaf" style="font-size: 2.5rem; color: #F7941D; margin-bottom: 1rem;"></i>
+                                <h5 style="font-weight: 700; margin-bottom: 1rem;">Sustainability</h5>
+                                <p style="color: #666; margin: 0;">Long-term development initiatives</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact & Support -->
+            <div class="row g-5 mb-5" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-lg-6">
+                    <div class="image-section">
+                        <img src="images/program-construction-2.jpg" alt="Community Development Impact">
+                    </div>
+                </div>
+                <div class="col-lg-6 detail-content">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem; color: #0F5DA6;">Why Community Development Matters</h2>
+                    <p style="font-size: 1rem; color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        When communities are strong and families are empowered, children naturally thrive. Community development:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Creates protective environments where children are safe
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Increases family income and reduces poverty
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Builds awareness about child rights and protection
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Strengthens social bonds and community solidarity
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Creates sustainable opportunities for intergenerational change
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" data-aos="zoom-in">
+        <div class="container">
+            <h2>Invest in Community Strength</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">
+                Your donation empowers families and strengthens communities where children are protected and can thrive.
+            </p>
+            <a href="donate.html" class="btn-donate-large">
+                <i class="fas fa-heart me-2"></i> Donate Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section style="padding: 5rem 0; background: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="program-header" style="font-size: 2rem; font-weight: 800; margin-bottom: 2rem; text-align: center;">Support Community Development Today</h2>
+                    
+                    <div class="donation-box">
+                        <h3 style="font-size: 1.6rem; margin-bottom: 1rem; text-align:center;">How Your Gift Helps</h3>
+                        <p style="margin-bottom: 1.25rem; line-height: 1.7; text-align:center;">Empower families and build stronger communities.</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 1.5rem;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2); font-size: 1rem; line-height: 1.6;">
+                                🌱 <strong>Livelihood training</strong> for parents.
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2); font-size: 1rem; line-height: 1.6;">
+                                🏘️ <strong>Family coaching</strong> and community support.
+                            </li>
+                            <li style="padding: 0.75rem 0; font-size: 1rem; line-height: 1.6;">
+                                🛡️ <strong>Child protection awareness</strong> across the community.
+                            </li>
+                        </ul>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #F7941D;">
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">
+                                <strong>We use every donation carefully and transparently to strengthen families and protect children.</strong>
+                            </p>
+                        </div>
+                        <div style="margin-top: 2rem; text-align: center;">
+                            <a href="donate.html" class="btn-donate-large">
+                                Donate Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <p style="text-align: center; color: #999; margin-top: 2rem; font-size: 0.95rem;">
+                        💡 <strong>Did you know?</strong> A $40 donation provides livelihood training that empowers one family.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white-50 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <h5 class="text-white fw-bold mb-2">Child of Hope Children's Foundation</h5>
+                    <p class="small mb-0">&copy; 2026 All Rights Reserved</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">Transforming lives of vulnerable children</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

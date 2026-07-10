@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cause Details - Child of Hope</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Favicon -->
+    <link href="images/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css?v=1.0" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css?v=1.0" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css?v=1.0" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css?v=1.0" rel="stylesheet">
+
+    <!-- Custom Cause Detail Styles -->
+    <style>
+        /* Navbar Styling */
+        .container-fluid.fixed-top {
+            background: #001D23;
+            z-index: 1030;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-dark {
+            background: transparent;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #FF6F0F !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #FF6F0F !important;
+        }
+
+        .navbar-dark .dropdown-menu {
+            background: #001D23;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-dark .dropdown-menu .dropdown-item {
+            color: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .navbar-dark .dropdown-menu .dropdown-item:hover {
+            background: #FF6F0F;
+            color: white;
+        }
+
+        .top-bar {
+            background: #001D23;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar small {
+            color: #ffffff !important;
+        }
+
+        /* Banner Button Styling */
+        .carousel-caption a.btn {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-caption a.btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(255, 111, 15, 0.5) !important;
+        }
+
+        .carousel-caption a.btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Banner Title Animation */
+        #bannerTitle {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            animation-delay: 0.2s;
+        }
+
+        /* Banner Description Animation */
+        #bannerDescription {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            animation-delay: 0.4s;
+        }
+
+        /* Banner Button Animation */
+        .carousel-caption a.btn.animated {
+            animation-delay: 0.6s;
+        }
+
+        /* Payment buttons styling */
+        .pesapal-amount-btn:hover {
+            background-color: #E85D00 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 111, 15, 0.3);
+        }
+
+        .pesapal-amount-btn {
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #FF6F0F !important;
+            box-shadow: 0 0 0 0.2rem rgba(255, 111, 15, 0.25) !important;
+        }
+
+        .cause-image {
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .progress-section {
+            background: #f8f8f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            #cause-banner {
+                height: 350px !important;
+            }
+
+            #bannerTitle {
+                font-size: 1.8rem;
+                margin-bottom: 1rem !important;
+            }
+
+            #bannerDescription {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .carousel-caption a.btn {
+                padding: 0.75rem 1.5rem !important;
+                font-size: 0.95rem;
+            }
+
+            .carousel-caption a.btn .btn-sm-square {
+                width: 30px !important;
+                height: 30px !important;
+                line-height: 30px !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #cause-banner {
+                height: 280px !important;
+            }
+
+            #bannerTitle {
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem !important;
+            }
+
+            #bannerDescription {
+                font-size: 0.85rem;
+                margin-bottom: 1rem !important;
+            }
+
+            .carousel-caption a.btn {
+                padding: 0.6rem 1.2rem !important;
+                font-size: 0.85rem;
+            }
+
+            .carousel-caption a.btn .btn-sm-square {
+                width: 28px !important;
+                height: 28px !important;
+                line-height: 28px !important;
+                margin-left: 0.5rem !important;
+            }
+
+            .carousel-caption a.btn i:first-child {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="top-bar text-white-50 row gx-0 align-items-center">
+            <div class="col-12 col-lg-6 px-5 text-start">
+                <small><i class="fa fa-map-marker-alt me-2"></i>Nansana Yesu Amala, Kampala Uganda</small>
+                <small class="ms-4"><i class="fa fa-envelope me-2"></i>childofhopechildrensfoundation@gmail.com</small>
+            </div>
+            <div class="col-12 col-lg-6 px-5 text-end">
+                <small>Follow us:</small>
+                <a class="text-white-50 ms-3" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="text-white-50 ms-3" href="https://www.linkedin.com/in/child-of-hope-childrens-foundation-33411b411/?skipRedirect=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="text-white-50 ms-3" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                <img src="images/logo.png" alt="Child of Hope Logo" class="navbar-logo">
+                <div class="navbar-brand-text">
+                    <h1 class="fw-bold text-primary m-0">Child of <span class="text-white">Hope</span></h1>
+                </div>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="causes.html" class="nav-item nav-link">Causes</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="service.html" class="dropdown-item">Service</a>
+                            <a href="donate.html" class="dropdown-item">Donate</a>
+                            <a href="team.html" class="dropdown-item">Our Team</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <div class="d-flex ms-2 mt-2 mt-lg-0 justify-content-center justify-content-lg-start">
+                    <a class="btn btn-outline-primary py-2 px-3" href="donate.html">
+                        Donate Now
+                        <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Banner Start -->
+    <div class="container-fluid p-0 mb-5" style="margin-top: 200px;">
+        <div id="cause-banner" class="position-relative" style="height: 500px; overflow: hidden;">
+            <img id="bannerImage" class="position-absolute w-100 h-100" src="images/carousel-1.jpg" alt="Cause Banner" style="object-fit: cover; filter: brightness(0.65);">
+            <div class="position-absolute w-100 h-100 top-0 start-0" style="background: linear-gradient(135deg, rgba(0, 29, 35, 0.5) 0%, rgba(0, 76, 87, 0.4) 100%);"></div>
+            <div class="carousel-caption position-absolute bottom-0 start-0 end-0 d-flex align-items-center" style="height: 100%;">
+                <div class="container w-100">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center px-3 px-lg-0">
+                            <h1 class="display-3 fw-bold text-white mb-3 animated slideInDown" id="bannerTitle" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); letter-spacing: 0.5px;">Loading...</h1>
+                            <p class="fs-5 text-white mb-4 animated slideInDown" id="bannerDescription" style="text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); line-height: 1.6; font-weight: 500;">Please wait...</p>
+                            <a class="btn btn-lg py-3 px-5 animated slideInDown" href="#donation-section" style="background: linear-gradient(135deg, #FF6F0F 0%, #E85D00 100%); border: none; color: white; font-weight: 700; box-shadow: 0 8px 20px rgba(255, 111, 15, 0.3); transition: all 0.3s ease;">
+                                <i class="fas fa-heart me-2"></i> Donate Now
+                                <div class="d-inline-flex btn-sm-square bg-white text-danger rounded-circle ms-2" style="width: 35px; height: 35px; line-height: 35px;">
+                                    <i class="fa fa-arrow-right" style="font-size: 16px;"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Cause Details Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Cause Information Column -->
+                <div class="col-lg-7">
+                    <div class="mb-4">
+                        <img id="causeImage" class="img-fluid cause-image" src="" alt="Cause Image">
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 id="causeTitle" class="mb-3">Loading...</h3>
+                        <p id="causeDescription" class="lead">Loading...</p>
+                    </div>
+
+                    <!-- Progress Section -->
+                    <div class="progress-section">
+                        <h4 class="mb-4">Fundraising Progress</h4>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <p class="text-dark mb-1"><strong>Goal</strong></p>
+                                <p class="fs-5 text-primary" id="causeGoal">$0</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-dark mb-1"><strong>Raised</strong></p>
+                                <p class="fs-5 text-success" id="causeRaised">$0</p>
+                            </div>
+                        </div>
+                        <div class="progress" style="height: 25px;">
+                            <div id="causeProgressBar" class="progress-bar bg-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                <span id="causePercentage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Description -->
+                    <div id="causeExtendedDescription" class="mt-5">
+                        <!-- Extended details will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Donation Column -->
+                <div class="col-lg-5" id="donation-section">
+                    <div style="background: linear-gradient(135deg, #001D23 0%, #004C57 100%); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); padding: 30px;">
+                        <h4 class="text-white mb-4" style="font-size: 1.5rem; font-weight: 600;">🎁 Donate to This Cause</h4>
+                        
+                        <!-- Payment Method Tabs -->
+                        <ul class="nav nav-tabs mb-4" id="paymentTabs" role="tablist" style="border-bottom: 2px solid rgba(255,255,255,0.2);">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active text-white" id="pesapal-tab" data-bs-toggle="tab" data-bs-target="#pesapal-payment" type="button" role="tab" aria-controls="pesapal-payment" aria-selected="true">
+                                    <i class="fas fa-mobile-alt me-2"></i> Pesapal
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="paymentTabContent">
+                            <!-- Pesapal Tab -->
+                            <div class="tab-pane fade show active" id="pesapal-payment" role="tabpanel" aria-labelledby="pesapal-tab">
+                                <div id="pesapal-status-message"></div>
+                                
+                                <div class="mb-3">
+                                    <input type="text" id="donor_name_pesapal" class="form-control" placeholder="Your Full Name" required style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="donor_email_pesapal" class="form-control" placeholder="Your Email Address" required style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                </div>
+
+                                <div class="d-grid gap-2 mb-3">
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="25" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $25 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="50" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $50 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="100" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $100 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="200" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $200 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="500" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $500 USD
+                                    </button>
+                                    <button type="button" class="btn py-2 pesapal-amount-btn" data-amount="1000" data-cause="Cause Donation" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate $1,000 USD
+                                    </button>
+                                </div>
+
+                                <form id="pesapal-form" action="pesapal.php" method="POST" style="display: none;">
+                                    <input type="hidden" id="amount" name="amount" value="">
+                                    <input type="hidden" id="cause" name="cause" value="">
+                                    <input type="hidden" name="donor_name" id="form_donor_name" value="">
+                                    <input type="hidden" name="donor_email" id="form_donor_email" value="">
+                                    <input type="hidden" id="csrf_token" name="csrf_token" value="">
+                                </form>
+
+                                <div class="input-group mb-3">
+                                    <input type="number" id="custom_amount_pesapal" class="form-control" placeholder="Custom amount (USD)" step="0.01" min="1" style="background-color: white; border: 2px solid #FF6F0F; padding: 10px 12px; font-weight: 500; color: #001D23;">
+                                    <button type="button" class="btn" onclick="donateCustomAmountPesapal()" style="background-color: #FF6F0F; color: white; font-weight: 600; border: none; transition: all 0.3s;">
+                                        <i class="fas fa-heart me-2"></i> Donate
+                                    </button>
+                                </div>
+
+                                <p class="text-white small mt-4">
+                                    <i class="fas fa-lock me-2"></i>
+                                    Your donation is secure and processed through Pesapal
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Back to Causes Button -->
+                    <div class="mt-4">
+                        <a href="causes.html" class="btn btn-primary w-100 py-3">
+                            <i class="fas fa-arrow-left me-2"></i> Back to All Causes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cause Details End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h1 class="fw-bold text-primary mb-4">Child of <span class="text-white">Hope</span></h1>
+                    <p>We believe every child deserves love, safety, and a chance to thrive.</p>
+                    <div class="d-flex pt-3">
+                        <a class="btn btn-square me-2" href="https://www.instagram.com/child_of_hope_childrens_fdn?igsh=ZTdtbmh4OWRuY2dq" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square me-2" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square" href="https://www.linkedin.com/in/child-of-hope-childrens-foundation-33411b411/?skipRedirect=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-light mb-4">Quick Links</h5>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="service.html">Our Services</a>
+                    <a class="btn btn-link" href="donate.html">Donate</a>
+                    <a class="btn btn-link" href="team.html">Our Team</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-light mb-4">Contact</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Nansana Yesu Amala, Kampala Uganda</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+256 731 751 309</p>
+                    <p><i class="fa fa-envelope me-3"></i>childofhopechildrensfoundation@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">Child of Hope Children's Foundation</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        // Cause data database
+        const causesDatabase = {
+            'education': {
+                name: 'Education For African Children',
+                category: 'Education',
+                title: 'Quality Education Access',
+                description: 'Every child deserves access to quality education. We provide scholarships, school supplies, and learning facilities to children in need.',
+                image: 'images/courses-1.jpg',
+                goal: 10000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Cause</h5>
+                    <p>Education is the foundation for breaking the cycle of poverty. Our Education program focuses on:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Providing scholarships to deserving students</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Supplying school materials and uniforms</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Building and renovating school facilities</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Training teachers with modern teaching methods</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Providing meals to students to improve focus</li>
+                    </ul>
+                    <p class="mt-4">Your donation helps us reach more children and give them the education they deserve.</p>
+                `
+            },
+            'pure-water': {
+                name: 'Ensure Pure Drinking Water',
+                category: 'Pure Water',
+                title: 'Clean Water Initiative',
+                description: 'Access to clean drinking water is essential for health. We install water systems and educate communities on water safety.',
+                image: 'images/drinking-water.png',
+                goal: 10000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Cause</h5>
+                    <p>Many children suffer from water-related diseases due to lack of access to clean water. Our Pure Water program:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Installs water boreholes in remote communities</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Provides water purification systems</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Educates on hygiene and sanitation</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Maintains water collection points</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Monitors water quality regularly</li>
+                    </ul>
+                    <p class="mt-4">Your donation directly provides clean water to families who need it most.</p>
+                `
+            },
+            'health': {
+                name: 'Ensure Medical Treatment',
+                category: 'Healthy Life',
+                title: 'Healthcare Access Program',
+                description: 'We provide medical treatment, vaccinations, and health education to vulnerable children and families.',
+                image: 'images/courses-3.jpg',
+                goal: 10000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Cause</h5>
+                    <p>Health is wealth. Our Healthcare program ensures children have access to essential medical services:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Free medical consultations and treatments</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Vaccination programs for preventive care</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Nutritional support for malnourished children</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Maternal health programs</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Health education in schools and communities</li>
+                    </ul>
+                    <p class="mt-4">Help us ensure every child has access to quality healthcare.</p>
+                `
+            },
+            'elderly': {
+                name: 'Support for the Elderly',
+                category: 'Elderly Care',
+                title: 'Elder Care Program',
+                description: 'We provide care, support, and dignity to elderly members of our community who have no one to care for them.',
+                image: 'images/elderly.jpg',
+                goal: 10000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Cause</h5>
+                    <p>The elderly deserve respect and care. Our Elder Care program includes:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Provision of food and nutrition</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Medical care and medications</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Safe shelter and living conditions</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Companionship and emotional support</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Dignity and respect in their final years</li>
+                    </ul>
+                    <p class="mt-4">Your support helps us care for those who have contributed so much to our society.</p>
+                `
+            },
+            'medication': {
+                name: 'Medication for Children with HIV/AIDS',
+                category: 'Medication Support',
+                title: 'HIV/AIDS Support Program',
+                description: 'Provide lifesaving medication and treatment support for children born and living with HIV/AIDS.',
+                image: 'images/antiretroviral-truvada-569fdee85f9b58eba4ad8db5.jpg',
+                goal: 30000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Cause</h5>
+                    <p>Children living with HIV/AIDS deserve hope and a healthy future. Our Medication Support program:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Provides antiretroviral therapy (ART)</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Covers medication costs</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Provides counseling and emotional support</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Monitors health and treatment progress</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Educates on healthy living with HIV</li>
+                    </ul>
+                    <p class="mt-4">Your donation extends life and restores hope for HIV+ children.</p>
+                `
+            },
+            'women': {
+                name: 'Support Single Mothers & Survivors',
+                category: 'Women & Mothers',
+                title: 'Women Empowerment Program',
+                description: 'Help single mothers and survivors of rape and forced early childbirth rebuild their lives with dignity.',
+                image: 'images/Women .jpg',
+                goal: 20000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Cause</h5>
+                    <p>Many women face hardship and trauma. Our Women Empowerment program supports:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Single mothers with financial assistance</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Skills training and job placement</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Counseling for trauma survivors</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Legal support and advocacy</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Safe housing and community support</li>
+                    </ul>
+                    <p class="mt-4">Help us empower women and break the cycle of poverty and abuse.</p>
+                `
+            },
+            'nutrition': {
+                name: 'Nutrition & Meals',
+                category: 'Nutrition',
+                title: 'Restoring Hope One Meal at a Time',
+                description: 'We help provide nutritious meals and emergency food support so children can learn, grow, and thrive.',
+                image: 'images/donate-meal.jpg',
+                goal: 12000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Program</h5>
+                    <p>For many vulnerable children, hunger is an everyday reality. Proper nutrition is essential for physical health, emotional well-being, and academic success.</p>
+                    <h6 class="mt-4">Our Vision</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Organize community feeding activities</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Provide emergency food assistance</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Improve children's nutrition</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Partner with local supporters to fight hunger</li>
+                    </ul>
+                    <p class="mt-4">Every meal shared is an opportunity to restore dignity, hope, and health.</p>
+                `
+            },
+            'protection': {
+                name: 'Child Protection',
+                category: 'Protection',
+                title: 'Every Child Deserves Safety and Love',
+                description: 'We promote child protection through awareness, advocacy, mentorship, and collaboration with families and local leaders.',
+                image: 'images/about-child-portrait.jpg',
+                goal: 8000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Program</h5>
+                    <p>Every child deserves to grow up in an environment where they feel safe, valued, and protected. We stand with vulnerable children and families through awareness and advocacy.</p>
+                    <h6 class="mt-4">Our Vision</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Promote children's rights</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Raise awareness about child protection</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Support vulnerable families</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Build safe environments where children can thrive</li>
+                    </ul>
+                    <p class="mt-4">Protecting children today helps build stronger communities tomorrow.</p>
+                `
+            },
+            'mentorship': {
+                name: 'Mentorship',
+                category: 'Mentorship',
+                title: 'Guiding the Next Generation',
+                description: 'We walk alongside children as they discover their gifts, grow in confidence, and build hope for the future.',
+                image: 'images/team-3.jpg',
+                goal: 7000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Program</h5>
+                    <p>Children need more than education and food—they also need encouragement, positive role models, and someone who believes in them. Mentorship helps them develop confidence, character, and resilience.</p>
+                    <h6 class="mt-4">Our Vision</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Provide mentorship sessions</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Encourage leadership development</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Build confidence and life skills</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Inspire children to dream beyond their circumstances</li>
+                    </ul>
+                    <p class="mt-4">Sometimes one caring mentor can change the direction of a child's life.</p>
+                `
+            },
+            'spiritual': {
+                name: 'Spiritual Encouragement',
+                category: 'Spiritual Support',
+                title: 'Sharing Hope That Lasts Forever',
+                description: 'We share compassion, service, integrity, and hope while respecting every child’s dignity.',
+                image: 'images/hero-school-walk.jpg',
+                goal: 6000,
+                raised: 0,
+                details: `
+                    <h5 class="mb-3">About This Program</h5>
+                    <p>At Child of Hope, we believe lasting transformation includes both practical support and spiritual encouragement. Our Christian faith inspires everything we do.</p>
+                    <h6 class="mt-4">Our Vision</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Share Biblical values</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Pray with children and families who welcome it</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Encourage hope through faith</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Partner with churches and Christian organizations</li>
+                    </ul>
+                    <p class="mt-4">Our desire is not only to meet immediate needs but also to help children grow in hope, purpose, and faith.</p>
+                `
+            }
+        };
+
+        // Generate and store CSRF token
+        function generateCSRFToken() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0;
+                var v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        // Load cause details on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize CSRF token
+            if (!sessionStorage.getItem('csrf_token')) {
+                sessionStorage.setItem('csrf_token', generateCSRFToken());
+            }
+
+            // Get cause from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const causeId = urlParams.get('cause') || 'education';
+            
+            // Load cause data
+            loadCauseData(causeId);
+
+            // Setup payment buttons
+            setupPaymentButtons();
+        });
+
+        function loadCauseData(causeId) {
+            const cause = causesDatabase[causeId];
+            
+            if (!cause) {
+                document.getElementById('causeName').textContent = 'Cause Not Found';
+                return;
+            }
+
+            // Update page title
+            document.title = cause.name + ' - Child of Hope';
+
+            // Update banner
+            document.getElementById('bannerImage').src = cause.image;
+            document.getElementById('bannerTitle').textContent = cause.name;
+            document.getElementById('bannerDescription').textContent = cause.description;
+
+            // Update cause information
+            document.getElementById('causeTitle').textContent = cause.title;
+            document.getElementById('causeDescription').textContent = cause.description;
+            document.getElementById('causeImage').src = cause.image;
+            document.getElementById('causeExtendedDescription').innerHTML = cause.details;
+            
+            // Update progress
+            document.getElementById('causeGoal').textContent = '$' + cause.goal.toLocaleString();
+            document.getElementById('causeRaised').textContent = '$' + cause.raised.toLocaleString();
+            const percentage = Math.round((cause.raised / cause.goal) * 100);
+            document.getElementById('causeProgressBar').style.width = percentage + '%';
+            document.getElementById('causePercentage').textContent = percentage + '%';
+
+            // Update form cause field
+            document.getElementById('cause').value = cause.name;
+        }
+
+        function setupPaymentButtons() {
+            // Pesapal buttons
+            document.querySelectorAll('.pesapal-amount-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const name = document.getElementById('donor_name_pesapal').value.trim();
+                    const email = document.getElementById('donor_email_pesapal').value.trim();
+                    
+                    if (!name || !email) {
+                        showErrorPesapal('Please enter your name and email first.');
+                        return;
+                    }
+                    
+                    if (!validateEmail(email)) {
+                        showErrorPesapal('Please enter a valid email address.');
+                        return;
+                    }
+
+                    const amount = this.getAttribute('data-amount');
+                    const cause = this.getAttribute('data-cause');
+                    submitDonationPesapal(name, email, amount, cause);
+                });
+            });
+
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function donateCustomAmountPesapal() {
+            const name = document.getElementById('donor_name_pesapal').value.trim();
+            const email = document.getElementById('donor_email_pesapal').value.trim();
+            const amount = document.getElementById('custom_amount_pesapal').value.trim();
+            
+            if (!name || !email) {
+                showErrorPesapal('Please enter your name and email first.');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showErrorPesapal('Please enter a valid email address.');
+                return;
+            }
+
+            if (!amount || amount < 1) {
+                showErrorPesapal('Please enter an amount of at least $1 USD.');
+                return;
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const cause = causesDatabase[urlParams.get('cause') || 'education'];
+            submitDonationPesapal(name, email, amount, cause.name);
+        }
+
+        function submitDonationPesapal(name, email, amount, cause) {
+            const csrfToken = sessionStorage.getItem('csrf_token') || generateCSRFToken();
+            document.getElementById('form_donor_name').value = name;
+            document.getElementById('form_donor_email').value = email;
+            document.getElementById('amount').value = amount;
+            document.getElementById('cause').value = cause;
+            document.getElementById('csrf_token').value = csrfToken;
+            
+            document.getElementById('pesapal-form').submit();
+        }
+
+        function showErrorPesapal(message) {
+            const messageDiv = document.getElementById('pesapal-status-message');
+            messageDiv.innerHTML = '<div class="alert alert-danger">' + message + '</div>';
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize WOW.js for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof WOW !== 'undefined') {
+                new WOW().init();
+            }
+
+            // Hide spinner when page is loaded
+            const spinner = document.getElementById('spinner');
+            if (spinner) {
+                setTimeout(() => {
+                    spinner.classList.remove('show');
+                }, 300);
+            }
+        });
+
+        // Also ensure spinner hides on window load
+        window.addEventListener('load', function() {
+            const spinner = document.getElementById('spinner');
+            if (spinner) {
+                spinner.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>
